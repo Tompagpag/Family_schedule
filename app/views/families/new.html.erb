@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <h1>Create a new family</h1>
+  <%= simple_form_for(@family) do |f| %>
+    <div class="d-flex">
+      <div class="row col-10">
+        <%= f.input :last_name %>
+     </div>
+    </div>
+    <%= f.submit class: "btn btn-primary"%>
+  <% end %>
+</div>
