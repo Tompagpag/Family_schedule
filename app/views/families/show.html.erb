@@ -1,0 +1,8 @@
+<p>Family : <%= @family.last_name %></p>
+<div>Members:
+  <% @family.family_members.each do |member| %>
+    <p><%= "#{member.first_name} #{member.last_name}" %></p>
+  <% end %>
+</div>
+
+<%= link_to "My family schedule", family_conflicts_path(:family_id) %>

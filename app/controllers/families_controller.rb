@@ -5,8 +5,9 @@ class FamiliesController < ApplicationController
 
   def create
     @family = Family.new(family_params)
+    FamilyMember.create(admin: true, user: current_user, family: @family)
 
-    if @family.save!
+    if @family.save
       redirect_to family_path(@family)
     else
       render :new
@@ -14,6 +15,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
+    @family = Family.find(params[:id])
   end
 
   private

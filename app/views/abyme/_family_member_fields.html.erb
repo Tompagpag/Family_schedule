@@ -1,6 +1,14 @@
 <%# Partial for family_member fields %>
 
-<%= f.input :first_name %>
-<%= f.input :last_name %>
-<%= f.hidden_field :_destroy %>
-<%= remove_associated_record content: "Remove family_member" %>
+<div>
+  <%= f.hidden_field :_destroy %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+
+  <hr>
+  <div class="admin user">
+    <%= f.input :email %>
+    <%= f.input :admin %>
+  </div>
+  <%= remove_associated_record content: "Remove family_member" %>
+</div>
