@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    abyme (0.6.4)
     actioncable (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
@@ -305,8 +306,10 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-darwin-21
 
 DEPENDENCIES
+  abyme
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
   byebug
