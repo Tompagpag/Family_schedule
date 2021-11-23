@@ -4,4 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :family_member, optional: true
+
+  def family_member?
+    FamilyMember.find_by(user_id: id).present?
+  end
+
 end
