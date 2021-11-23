@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_170720) do
   end
 
   create_table "family_members", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.bigint "family_id", null: false
     t.boolean "admin"
     t.string "first_name"
