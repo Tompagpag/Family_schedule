@@ -17,11 +17,14 @@ class CalendarController < ApplicationController
     client = Signet::OAuth2::Client.new(client_options)
     client.update!(session[:authorization])
 
-    service = Google::Apis::CalendarV3::CalendarService.new
-    service.authorization = client
+    @service = Google::Apis::CalendarV3::CalendarService.new
+    @service.authorization = client
+
+    # binding.pry
 
     # service.list_events('primary').items.each do |event|
-    #   Event.create
+    # #TODO: faire une condition pour les event sans précision d'heure event.start.date
+    #   Event.create(title: event.summary, start_date: event.start.date_time, end_date: event.end.date_time)
     # end
   end
 
