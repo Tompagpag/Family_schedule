@@ -5,8 +5,9 @@ class FamiliesController < ApplicationController
 
   def create
     @family = Family.new(family_params)
-    if @family.save
-      redirect_to family_conflicts_path(@family)
+
+    if @family.save!
+      redirect_to family_path(@family)
     else
       render :new
     end
@@ -18,6 +19,6 @@ class FamiliesController < ApplicationController
   private
 
   def family_params
-    params.require(:family).permit(:last_name)
+    params.require(:family).permit(abyme_attributes, :last_name)
   end
 end
