@@ -3,10 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :family_member, optional: true
+
+  has_one :family_member
+  has_one :family, through: :family_member
 
   def family_member?
     FamilyMember.find_by(user_id: id).present?
   end
-
 end

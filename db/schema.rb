@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_170720) do
+ActiveRecord::Schema.define(version: 2021_11_23_135205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_170720) do
     t.date "start_date"
     t.date "end_date"
     t.text "comment"
-    t.bigint "conflict_id", null: false
+    t.bigint "conflict_id"
     t.bigint "family_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_170720) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
     t.index ["family_id"], name: "index_family_members_on_family_id"
     t.index ["user_id"], name: "index_family_members_on_user_id"
   end
