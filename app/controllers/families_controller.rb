@@ -6,7 +6,7 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
 
-    if @family.save!
+    if @family.save
       redirect_to family_path(@family)
     else
       render :new
@@ -14,6 +14,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
+    @family = Family.find(params[:id])
   end
 
   private
