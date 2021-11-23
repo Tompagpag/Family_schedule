@@ -1,0 +1,54 @@
+.simple-calendar {
+
+  .table {
+    border: 1px solid #ED8074;
+    border-radius: 4px;
+  }
+
+  thead {
+    border: 1px solid #ED8074;
+    border-radius: 4px;
+    th:first-child {
+      border-left: none;
+    }
+    th:last-child {
+      border-right: none;
+    }
+  }
+
+
+  td  {
+    border: 1px solid #ED8074;
+    padding: 6px;
+    vertical-align: top;
+    width: 14%;
+
+  }
+
+
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background: #1D7A8C;
+
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+
+}
