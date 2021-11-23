@@ -1,6 +1,7 @@
 class ConflictsController < ApplicationController
 
   def index
+    @conflicts = Conflict.all
   end
 
   def show
