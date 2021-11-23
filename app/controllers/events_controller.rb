@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     @event = Event.new(event_params)
     @family = Family.find(params[:family_id])
     @event.family_id = @family.id
@@ -34,6 +33,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start_date, :end_date, :comment)
+    params.require(:event).permit(:title, :start_at, :end_at, :comment)
   end
 end

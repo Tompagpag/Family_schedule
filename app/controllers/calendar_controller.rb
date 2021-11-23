@@ -24,7 +24,7 @@ class CalendarController < ApplicationController
 
     service.list_events('primary').items.each do |event|
     #TODO: faire une condition pour les event sans précision d'heure event.start.date
-      Event.create!(title: event.summary, start_date: event.start.date_time, end_date: event.end.date_time, family_member: current_user.family_member)
+      Event.create!(title: event.summary, start_at: event.start.date_time, end_at: event.end.date_time, family_member: current_user.family_member, family: current_user.family)
     end
 
     redirect_to root_path
