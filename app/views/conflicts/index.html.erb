@@ -1,14 +1,16 @@
-<div class="container">
+<div class="container" >
   <h2>Mes problèmes</h2>
+  <%= month_calendar(events: @events, attribute: :start_at) do |date, events| %>
+    <div data-controller="calendar" data-action="click->calendar#display" >
+      <%= date.day %>
+    <div class="day-events d-none" data-calendar-target="display">
 
-<%= month_calendar(events: @events, attribute: :start_at) do |date, events| %>
-  <%= date.day %>
-
-  <% events.each do |event| %>
-    <div>
-      <%= event.title %> <br>
-      start :<%= event.start_at %> <br>
-      end :<%= event.end_at %>
+      <% events.each do |event| %>
+        <div class="details">
+          <h6><%= event.title %></h6>
+          <h6><%= event.start_at.hour %>h - <%= event.end_at.hour %>h</h6>
+        </div>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+</div>

@@ -1,13 +1,15 @@
 .simple-calendar {
-
+  border: 0;
   .table {
-    border: 1px solid #ED8074;
-    border-radius: 4px;
+
+    border-radius: 30px;
   }
 
   thead {
-    border: 1px solid #ED8074;
-    border-radius: 4px;
+
+    height: 10vh;
+    justify-content: center;
+    text-align: center;
     th:first-child {
       border-left: none;
     }
@@ -18,7 +20,8 @@
 
 
   td  {
-    border: 1px solid #ED8074;
+
+    border-radius: 10px;
     padding: 6px;
     vertical-align: top;
     width: 14%;
@@ -27,6 +30,7 @@
 
 
   .day {
+
   }
 
   .wday-0 {}
@@ -50,6 +54,22 @@
   .next-month { }
   .current-month {}
 
-  .has-events {}
+  .has-events {
+    background-color: #ED8074;
+  }
+
+  .has-events h6 {
+
+  }
+ span {
+   color: #ED8074;
+ }
+
+ a {
+   color: #ED8074;
+ }
+  .day-events {
+    background-color: #ED8074;
+  }
 
 }
