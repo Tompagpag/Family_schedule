@@ -7,44 +7,48 @@ class Event < ApplicationRecord
   # of after update event ?
 
   def set_conflict
-    # Travailler sur les events déjà uploadés ?
 
     # children_events = family.children_events(start_at.day).where.not(id: id)
     # parent_events = family.events(start_at.day).where.not(id: id)
 
     if !parent_event?
-      if childevent_iscovered_by_mumevent? && childevent_iscovered_by_dadevent?
-        return true
-        # generate conflict
+      if created_childevent_iscovered_by_parentevent?
+        generateconflict('transport')
       end
     end
 
-    if parent_event?
-
+    if parent_event? && parents_events_overlap?
+      if children_events.none?
+        generateconflict('babysitter')
+      end
+      if childevent_iscovered_by_created_parentevent?
+        generateconflict('transport')
+      end
     end
-
-
-    # children_events.each do |event|
-    #   if event.time_range.overlaps?(self.time_range)
-    #     new_conflict = Conflict.new(date: self.start_at.to_date, family: event.family)
-    #     event.update(conflict: new_conflict)
-    #     self.conflict = new_conflict
-    #     new_conflict.save
-    #     save
-    #   end
-    # end
 
   end
 
-  def unset_conflict
+  def offset_conflict
     # Pour régler un conflit : set un contact_id (= babysitter)
   end
 
-  private
+  def dad_events
+    family.dad_events(self.start_at)
+  end
+
+  def mum_events
+    family.mum_events(self.start_at)
+  end
+
+  def children_events
+    family.children_events(self.start_at)
+  end
 
   def time_range
-    start_date..end_date
+    start_at..end_at
   end
+
+  private
 
   def parent_event?
     family_member.admin == true
@@ -54,14 +58,28 @@ class Event < ApplicationRecord
     start_at.to_date
   end
 
-  def childevent_iscovered_by_mumevent?
-    event = self.family.dad_events(event_date)
-    event.time_range.covers(self.time_range)
+  def created_childevent_iscovered_by_parentevent?
+    dad_events.any? { |event| event.time_range.cover?(self.time_range) } &&
+    mum_events.any? { |event| event.time_range.cover?(self.time_range) }
   end
 
-  def childevent_iscovered_by_dadevent?
-    event = self.family.mum_events(event_date)
-    event.time_range.covers(self.time_range)
+  def childevent_iscovered_by_created_parentevent?
+    children_events.any? { |event| self.time_range.cover?(event.time_range) }
+  end
+
+  def parents_events_overlap?
+    if dad_events.include?(self)
+      mum_events.any? { |event| event.time_range.overlaps?(self.time_range) }
+    end
+    if mum_events.include?(self)
+      dad_events.any? { |event| event.time_range.overlaps?(self.time_range) }
+    end
+  end
+
+  def generateconflict(conflict_type)
+    new_conflict = Conflict.new(conflict_type: conflict_type, date: start_at, family: family)
+    self.update(conflict: new_conflict)
+    new_conflict.save
   end
 
 end
