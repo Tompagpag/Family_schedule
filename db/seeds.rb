@@ -9,6 +9,7 @@
 Family.destroy_all
 User.destroy_all
 FamilyMember.destroy_all
+Contact.destroy_all
 
 password = "123456"
 john = User.create(email: "johndoe.familyschedule@gmail.com", password: password)
