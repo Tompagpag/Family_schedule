@@ -13,13 +13,16 @@ class ContactsController < ApplicationController
     @family = Family.find(params[:family_id])
     @contact.family = @family
     if @contact.save
-      redirect_to contacts_path
+      redirect_to family_contacts_path(@family)
     else
       render :new
     end
   end
 
   def destroy
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    redirect_to family_contacts_path(@family)
   end
 
   private
