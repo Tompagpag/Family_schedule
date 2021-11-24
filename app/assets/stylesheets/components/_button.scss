@@ -1,12 +1,46 @@
 .btn-flat {
   color: white;
+  font-size: 30px;
   padding: 8px 24px;
-  border-radius: 4px;
+  border-radius : 30px;
   background: #1D7A8C;
   transition: background 0.3s ease;
+    &:hover {
+    background: #70b7c5;
+    color: white;
+  }
 }
 
-.btn-flat:hover {
-  background: #1D7A8C;
+
+
+.btn-orange {
+  margin-left : 8px;
+  font-size: 30px;
+  background-color: #F08B75;
+  border: 2px solid #F08B75;
+  border-radius : 30px;
   color: white;
+  padding: 10px;
+  &:hover {
+    color: white;
+    margin-left : 8px;
+    background-color: #f1b4a7;
+    border: 2px solid #f1b4a7;
+    border-radius : 30px;
+  }
 }
+
+.btn-orange-reverse {
+  font-size: 30px;
+  margin-left : 8px;
+  padding: 10px;
+  background-color: none;
+  border: 2px solid #F08B75;
+  color: #F08B75;
+  border-radius : 30px;
+  &:hover {
+    color: white;
+    margin-left : 8px;
+    color: #f1b4a7;
+  }
+};

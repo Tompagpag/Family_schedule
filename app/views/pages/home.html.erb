@@ -1,12 +1,2 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-
-
-<% if user_signed_in? %>
-  <% if current_user.family_member? %>
-    <%= link_to "My family Schedule", family_conflicts_path(:family_id) %>
-  <% else %>
-    <%= link_to "Add your family", new_family_path %>
-  <% end %>
-<% end %>
+<%= render 'shared/banner' %>
+<%= render 'shared/footer' %>
