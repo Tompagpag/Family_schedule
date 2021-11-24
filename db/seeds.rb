@@ -11,12 +11,12 @@ User.destroy_all
 FamilyMember.destroy_all
 
 password = "123456"
-User.create(email: "t@g.com", password: password)
-User.create(email: "b@g.com", password: password)
+john = User.create(email: "johndoe.familyschedule@gmail.com", password: password)
+jane = User.create(email: "janedoe.familyschedule@gmail.com", password: password)
 
-Family.create(last_name: "My family")
+family = Family.create(last_name: "My family")
 
-FamilyMember.create(first_name: "Michel", last_name: "Truc", admin: true, family_id: 1, user_id: 1, email: "t@g.com")
-FamilyMember.create(first_name: "Bernadette", last_name: "Truc", admin: true, family_id: 1, user_id: 2, email: "b@g.com")
-FamilyMember.create(first_name: "Jules", last_name: "Truc", admin: false, family_id: 1)
-FamilyMember.create(first_name: "Lola", last_name: "Truc", admin: true, family_id: 1)
+FamilyMember.create(first_name: "John", last_name: "Doe", admin: true, family: family, user: john, email: "johndoe.familyschedule@gmail.com")
+FamilyMember.create(first_name: "Jane", last_name: "Doe", admin: true, family: family, user: jane, email: "janedoe.familyschedule@gmail.com")
+FamilyMember.create(first_name: "Jules", last_name: "Doe", admin: false, family: family)
+FamilyMember.create(first_name: "Lola", last_name: "Doe", admin: false, family: family)
