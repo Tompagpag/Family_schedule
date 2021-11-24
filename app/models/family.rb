@@ -10,11 +10,14 @@ class Family < ApplicationRecord
 
   has_many :users, through: :family_members
 
-  def children_events
-    family_members.where(admin: false).flat_map(&:events)
+  def children_events(day)
+    self.events.where(admin: false).flat_map(&:events)
+              .where('extract(day from start_at) = ?', day)
   end
 
-  def parents_events
-    family_members.where(admin: true).flat_map(&:events)
+  def parents_events(day)
+    self.events.where(admin: true).flat_map(&:events)
+              .where('extract(day from start_at) = ?', day)
   end
+
 end

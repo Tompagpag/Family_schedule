@@ -4,10 +4,11 @@ class Event < ApplicationRecord
   belongs_to :family_member
 
   after_create_commit :set_conflict
+  # of after update event ?
 
   def set_conflict
 
-    # attention : travailler sur les events déjà uploadés ?
+    # Travailler sur les events déjà uploadés ?
 
     # Conflit généré si pour un jour donné :
       # papa et maman ont chacun un event qui s'overlap
@@ -17,10 +18,10 @@ class Event < ApplicationRecord
 
     # Pour régler un conflit : set un contact_id (= babysitter)
 
-    events = family.events.where.not(id: id)
-                   .joins(:family_member)
-                   .where(family_members: { user_id: nil })
-                   .where('extract(day from start_date) = ?', start_date.day)
+    # les events de la journée pour les enfants déjà créés
+
+    children_events = family.children_events(start_date.day).where.not(id: id)
+    parent_events = family.events(start_date.day).where.not(id: id)
 
     events.each do |event|
       if event.time_range.overlaps?(self.time_range)
