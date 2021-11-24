@@ -1,14 +1,2 @@
-<div class="container">
-  <div class="home">
-    <h1>Family Schedule</h1>
-    <h3>Tout le calendrier de la famille au même endroit! </h3>
-    <% if user_signed_in? %>
-      <% if current_user.family_member? %>
-        <%= link_to "My family Schedule", family_conflicts_path(:family_id), class: "btn btn-orange" %>
-      <% else %>
-        <%= link_to "Add your family", new_family_path, class: "btn btn-orange" %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<%= render 'shared/banner' %>
 <%= render 'shared/footer' %>

@@ -1,17 +1,18 @@
 .navbar-lewagon {
-  justify-content: center !important;
   align-items: center;
   background-color: #fffffff2;
-
 }
-
 .container-fluid {
-  justify-content: center !important;
-  align-items: center;
+  justify-content: unset !important;
+}
+.logo {
+margin: 0 auto;
 }
 
 .navbar-collapse {
-  flex-grow: 0;
+  font-size: 35px;
+  position: relative;
+  flex-grow: unset;
 }
 
 .navbar-lewagon .navbar-brand img {
