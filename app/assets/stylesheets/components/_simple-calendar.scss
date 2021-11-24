@@ -1,15 +1,25 @@
 .simple-calendar {
   border: 0;
   .table {
-
-    border-radius: 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: none;
   }
 
+  .calendar-heading {
+      display: flex;
+      justify-content: space-around;
+      background: #ED8074;
+      color: white;
+      padding: 10px 0;
+      border-radius: 20px 20px 0 0;
+  }
   thead {
-
     height: 10vh;
-    justify-content: center;
-    text-align: center;
+    th {
+      text-align: center;
+      vertical-align: top;
+    }
     th:first-child {
       border-left: none;
     }
@@ -18,20 +28,33 @@
     }
   }
 
-
   td  {
-
-    border-radius: 10px;
+    text-align: center;
     padding: 6px;
     vertical-align: top;
     width: 14%;
-
   }
 
-
-  .day {
-
+  tbody {
+    tr {
+      td {
+        // border-bottom-color: grey;
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+      }
+      &:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
   }
+
+  .day {}
 
   .wday-0 {}
   .wday-1 {}
@@ -43,15 +66,18 @@
 
   .today {
     background: #1D7A8C;
-
   }
   .past {}
   .future {}
 
   .start-date {}
 
-  .prev-month {}
-  .next-month { }
+  .prev-month {
+    background: #BFBFBF;
+  }
+  .next-month {
+    background: #BFBFBF;
+  }
   .current-month {}
 
   .has-events {
@@ -62,14 +88,17 @@
 
   }
  span {
-   color: #ED8074;
+    color: white;
+    font-weight: bold;
  }
 
  a {
-   color: #ED8074;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
  }
   .day-events {
     background-color: #ED8074;
   }
-
 }
