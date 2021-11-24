@@ -9,4 +9,12 @@ class Family < ApplicationRecord
   abymize :family_members, permit: :all_attributes
 
   has_many :users, through: :family_members
+
+  def children_events
+    family_members.where(admin: false).flat_map(&:events)
+  end
+
+  def parents_events
+    family_members.where(admin: true).flat_map(&:events)
+  end
 end
