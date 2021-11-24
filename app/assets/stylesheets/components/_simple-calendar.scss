@@ -1,9 +1,19 @@
+
+h2 {
+      font-size: 60px;
+      color: #1D7A8C;
+    }
+
 .simple-calendar {
   border: 0;
+  background-color: white;
+  // font-size: 40px;
+  font-family: 'Spartan', sans-serif;
   .table {
     border-radius: 20px;
     overflow: hidden;
     border: none;
+
   }
 
   .calendar-heading {
