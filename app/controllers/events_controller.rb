@@ -1,8 +1,24 @@
 class EventsController < ApplicationController
+  extend SimpleCalendar
+
   def new
+    @event = Event.new
+  end
+
+  def index
+    @events = Event.all
   end
 
   def create
+    @event = Event.new(event_params)
+    @family = Family.find(params[:family_id])
+    @event.family_id = @family.id
+    @event.user = current_user
+    if @event.save
+      redirect_to family_conflicts
+    else
+      render :new
+    end
   end
 
   def edit
@@ -12,5 +28,11 @@ class EventsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:title, :start_at, :end_at, :comment)
   end
 end
