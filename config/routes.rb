@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :families, only: [:show, :new, :create] do
     resources :family_members, only: [:create]
     resources :conflicts, only: [:index, :create, :show, :update]
-    resources :events, only: [:new, :create, :edit, :update, :destroy]
+    resources :events, only: [:new, :index, :create, :edit, :update, :destroy]
     resources :contacts, only: [:index, :new, :create, :destroy]
   end
 
