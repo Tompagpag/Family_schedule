@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_093016) do
     t.datetime "start_at"
     t.datetime "end_at"
     t.text "comment"
-    t.bigint "conflict_id"
+    t.bigint "conflict_id", null: false
     t.bigint "family_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_093016) do
   end
 
   create_table "family_members", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.bigint "family_id", null: false
     t.boolean "admin"
     t.string "first_name"
