@@ -1,4 +1,5 @@
 .calendar-title {
+  display: flex;
   margin-bottom: 30px;
   margin-top: 30px;
 }
@@ -9,4 +10,6 @@
 
 .calendar-title > .icon {
   font-size: 50px;
+  margin-left: 20px;
+  color: #70b7c5;
 }
