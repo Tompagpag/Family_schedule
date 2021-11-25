@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   extend SimpleCalendar
 
   def new
+    @family = Family.find(params[:family_id])
     @event = Event.new
   end
 
@@ -12,10 +13,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @family = Family.find(params[:family_id])
-    @event.family_id = @family.id
-    @event.user = current_user
+    @event.family = @family
+    @event.family_member = FamilyMember.find(params.dig(:event, :family_member)) if params.dig(:event, :family_member).present?
+
     if @event.save
-      redirect_to family_conflicts
+      redirect_to family_conflicts_path
     else
       render :new
     end
