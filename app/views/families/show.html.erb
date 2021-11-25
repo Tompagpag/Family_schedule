@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4 bg-white mt-5">
-    <h2>Synchronisation des agendas</h2>
-    <p>Family : <%= @family.last_name %></p>
-      <div>Members:
+   <div class="mb-5"> <h2>Ajouter depuis Gmail</h2></div>
+    <p>Ma Family s'appelle <%= @family.last_name %></p>
+      <div>Les membres de ma Family sont:
         <% @family.family_members.each do |member| %>
           <p><%= "#{member.first_name} #{member.last_name}" %></p>
         <% end %>
       </div>
 
-    <%= link_to 'Synchroniser avec Gmail', calendar_redirect_path, class: "btn btn-orange", style: "width=100%" %>
-
+    <%= link_to 'Ajouter depuis Gmail', calendar_redirect_path, class: "btn btn-orange-full" %>
     </div>
   </div>
 </div>

@@ -47,6 +47,27 @@
   }
 }
 
+.btn-orange-full {
+  margin-left : 8px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #F08B75;
+  border: 2px solid #F08B75;
+  border-radius : 30px;
+  color: white;
+  padding: 10px;
+  &:hover {
+    color: white;
+    margin-left : 8px;
+    background-color: #f1b4a7;
+    border: 2px solid #f1b4a7;
+    border-radius : 30px;
+  }
+}
+
 .btn-orange-reverse {
   font-size: 30px;
   font-family: 'Amatic SC', cursive;
@@ -61,7 +82,7 @@
     margin-left : 8px;
     color: #f1b4a7;
   }
-};
+}
 
   .btn-round {
   font-family: 'Amatic SC', cursive;
