@@ -11,6 +11,21 @@
   }
 }
 
+.btn-flat-full {
+  color: white;
+  font-size: 30px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 8px 24px;
+  border-radius : 30px;
+  background: #1D7A8C;
+  transition: background 0.3s ease;
+    &:hover {
+    background: #70b7c5;
+    color: white;
+  }
+}
 
 .btn-orange {
   margin-left : 8px;
