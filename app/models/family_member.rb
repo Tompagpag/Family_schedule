@@ -4,6 +4,7 @@ class FamilyMember < ApplicationRecord
   has_many :events
   validates :first_name, :last_name, presence: true
 
+
   before_save :associate_user
 
   def associate_user
