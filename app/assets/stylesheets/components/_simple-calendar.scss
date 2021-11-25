@@ -92,16 +92,29 @@ h2 {
   .current-month {}
 
   .has-events {
-
+    background: #ED8074;
   }
 
-
-  .has-events h6 {
-
+  .day_number {
+    border: 1px solid grey;
+    border-radius: 50%;
   }
+
  span {
     color: white;
     font-weight: bold;
+ }
+ .conflict {
+   background: blue;
+ }
+
+ .parent-conflict-bg {
+    background-color: red !important;
+ }
+
+ .test-circle {
+   border: 1px solid green;
+   border-radius: 50%;
  }
 
  a {
