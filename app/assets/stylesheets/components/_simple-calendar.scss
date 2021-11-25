@@ -9,7 +9,7 @@ h2 {
   border: 0;
   background-color: white;
   // font-size: 40px;
-  font-family: 'Spartan', sans-serif;
+  font-family: 'Overpass', sans-serif;
   .table {
     border-radius: 20px;
     overflow: hidden;
@@ -65,7 +65,8 @@ h2 {
     }
   }
 
-  .day {}
+  .day {
+  }
 
   .wday-0 {}
   .wday-1 {}
@@ -92,24 +93,45 @@ h2 {
   .current-month {}
 
   .has-events {
-    background-color: #ED8074;
+    background: #f3b3ac;
   }
 
-  .has-events h6 {
-
+  .day_number {
+    border: 1px solid grey;
+    border-radius: 50%;
   }
- span {
-    color: white;
-    font-weight: bold;
- }
 
- a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
- }
+  span {
+      color: white;
+      font-weight: bold;
+  }
+  .conflict {
+      background: #db5343;
+      color: white;
+      border-radius: 5px;
+  }
+
+  .parent-conflict-bg {
+      background: #ED8074 !important;
+  }
+
+
+  h6 {
+      font-family: 'Overpass', sans-serif;
+  }
+  a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+  }
   .day-events {
-    background-color: #ED8074;
+
+  }
+
+  tr:nth-of-type(2n+1) > td.parent-conflict-bg {
+    --bs-table-accent-bg: none;
+    // color: var(--bs-table-striped-color);
+    // background: red;
   }
 }
