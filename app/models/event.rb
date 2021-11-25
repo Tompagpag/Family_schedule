@@ -10,30 +10,19 @@ class Event < ApplicationRecord
   def set_conflict
     # children_events = family.children_events(start_at.day).where.not(id: id)
     # parent_events = family.events(start_at.day).where.not(id: id)
-    if !parent_event?
-      if created_childevent_iscovered_by_parentevent?
-        generateconflict('transport')
-        findotherconflicts
-      end
+
+
+    if child_event? && conflict_events_with_any_parent.any?
+      generate_conflict('transport', conflict_events_with_any_parent)
     end
 
-    if parent_event? && parents_events_overlap?
-      if children_events.none?
-        generateconflict('babysitter')
-        findotherconflicts
-          otherconflicts = family.events.all? { |event| event.time_range.overlaps? self.time_range }
-      end
-      if childevent_iscovered_by_created_parentevent?
-        array = Array(children_events).map { |event| self.time_range.cover?(event.time_range) }
-        array.each do |element|
-          if element == true
-            generateconflict('transport')
-            findotherconflicts
-          end
-        end
-      end
-    end
+    return unless conflict_events_with_other_parent.any?
 
+    if children_events.none?
+      generate_conflict('babysitter', conflict_events_with_other_parent)
+    elsif conflict_events_with_child.any?
+      generate_conflict('transport', conflict_events_with_other_parent + conflict_events_with_child)
+    end
   end
 
 
@@ -59,38 +48,37 @@ class Event < ApplicationRecord
 
   private
 
-  def parents_events_overlap?
-    if Array(dad_events).include?(self)
-      Array(mum_events).any? { |event| event.time_range.overlaps?(self.time_range) }
-    elsif Array(mum_events).include?(self)
-      Array(dad_events).any? { |event| event.time_range.overlaps?(self.time_range) }
-    else
-      false
-    end
-  end
-
-  def parent_event?
-    family_member.admin == true
+  def child_event?
+    !family_member.admin
   end
 
   def event_date
     start_at.to_date
   end
 
-  def created_childevent_iscovered_by_parentevent?
-    Array(dad_events).any? { |event| event.time_range.cover?(self.time_range) } &&
-    Array(mum_events).any? { |event| event.time_range.cover?(self.time_range) }
+  def conflict_events_with_any_parent
+    @conflict_events_with_any_parent ||=
+      Array(dad_events).select { |event| event.time_range.cover?(self.time_range) } |
+        Array(mum_events).select { |event| event.time_range.cover?(self.time_range) }
   end
 
-  def childevent_iscovered_by_created_parentevent?
-    Array(children_events).any? { |event| self.time_range.cover?(event.time_range) }
+  def conflict_events_with_child
+    @conflict_events_with_child ||= Array(children_events).select { |event| self.time_range.cover?(event.time_range) }
   end
 
+  def conflict_events_with_other_parent
+    @conflict_events_with_other_parent ||= if Array(dad_events).include?(self)
+      Array(mum_events).select { |event| event.time_range.overlaps?(self.time_range) }
+    elsif Array(mum_events).include?(self)
+      Array(dad_events).select { |event| event.time_range.overlaps?(self.time_range) }
+    else
+      []
+    end
+  end
 
-  def generateconflict(conflict_type)
-    new_conflict = Conflict.new(conflict_type: conflict_type, date: start_at, family: family)
+  def generate_conflict(conflict_type, conflict_events)
+    new_conflict = Conflict.create!(conflict_type: conflict_type, date: start_at, family: family)
     self.update(conflict: new_conflict)
-    new_conflict.save
+    conflict_events.each { |event| event.update(conflict: new_conflict) }
   end
-
 end
