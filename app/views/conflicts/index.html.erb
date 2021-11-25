@@ -2,11 +2,9 @@
 
   <div class="calendar-title">
     <h2>Mon calendrier</h2>
-    <div class = "icon">
-      <%= link_to new_family_event_path(current_user.family) do %>
-        <i class="far fa-calendar-plus icon"></i>
-      <% end %>
-    </div>
+    <%= link_to new_family_event_path(current_user.family) do %>
+      <i class="far fa-calendar-plus iconcolor"></i>
+    <% end %>
   </div>
 
   <%= month_calendar(events: @events, attribute: :start_at) do |date, events| %>
