@@ -9,6 +9,7 @@ class Family < ApplicationRecord
   abymize :family_members, permit: :all_attributes
 
   has_many :users, through: :family_members
+  validates :last_name, presence: true
 
   def children_events(day)
     self.events.joins(:family_member)
