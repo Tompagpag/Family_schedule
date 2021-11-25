@@ -8,7 +8,7 @@ h2 {
   border: 0;
   background-color: white;
   // font-size: 40px;
-  font-family: 'Spartan', sans-serif;
+  font-family: 'Overpass', sans-serif;
   .table {
     border-radius: 20px;
     overflow: hidden;
@@ -92,7 +92,7 @@ h2 {
   .current-month {}
 
   .has-events {
-    background: #ED8074;
+    background: #f3b3ac;
   }
 
   .day_number {
@@ -109,14 +109,16 @@ h2 {
  }
 
  .parent-conflict-bg {
-    background-color: red !important;
+    background: #ED8074 !important;
+    .has-events {
+      opacity: 1;
+    }
  }
 
- .test-circle {
-   border: 1px solid green;
-   border-radius: 50%;
- }
 
+ h6 {
+    font-family: 'Overpass', sans-serif;
+ }
  a {
     color: white;
     text-decoration: none;
