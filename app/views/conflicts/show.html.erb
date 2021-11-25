@@ -1,0 +1,17 @@
+
+
+
+
+<h2><%= @conflict.events.first.start_at.strftime('%d-%b-%y') %></h2>
+<div class="container">
+  <div class="card conflict-details"><%= @conflict.b %></div>
+<div class="card">contacts</div>
+</div>
+
+
+
+
+
+
+
+<%= link_to "My family schedule", family_conflicts_path(:family_id) %>

@@ -17,12 +17,14 @@ class Event < ApplicationRecord
 
     return unless conflict_events_with_other_parent.any?
 
+
     if children_events.none?
       generate_conflict('babysitter', conflict_events_with_other_parent)
     elsif conflict_events_with_child.any?
       generate_conflict('transport', conflict_events_with_other_parent + conflict_events_with_child)
     end
   end
+
 
   def offset_conflict
     # Pour régler un conflit : set un contact_id (= babysitter)
