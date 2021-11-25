@@ -19,5 +19,8 @@ family = Family.create(last_name: "My family")
 
 FamilyMember.create(first_name: "John", last_name: "Doe", admin: true, family: family, user: john, email: "johndoe.familyschedule@gmail.com")
 FamilyMember.create(first_name: "Jane", last_name: "Doe", admin: true, family: family, user: jane, email: "janedoe.familyschedule@gmail.com")
-FamilyMember.create(first_name: "Jules", last_name: "Doe", admin: false, family: family)
-FamilyMember.create(first_name: "Lola", last_name: "Doe", admin: false, family: family)
+jules = FamilyMember.create(first_name: "Jules", last_name: "Doe", admin: false, family: family)
+lola = FamilyMember.create(first_name: "Lola", last_name: "Doe", admin: false, family: family)
+
+Event.create(title: "tennis", start_at: "2021-12-01-12:30", end_at: "2021-12-01-12:45", family: family, family_member: jules)
+Event.create(title: "danse", start_at: "2021-12-01-12:30", end_at: "2021-12-01-14:00", family: family, family_member: lola)
