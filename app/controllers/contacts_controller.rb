@@ -1,11 +1,12 @@
 class ContactsController < ApplicationController
   def index
+    @family = Family.find(params[:family_id])
     @contacts = Contact.all
   end
 
   def new
-    @contact = Contact.new
     @family = Family.find(params[:family_id])
+    @contact = Contact.new
   end
 
   def create

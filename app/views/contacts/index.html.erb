@@ -1,11 +1,16 @@
 <div class='container-fluid p-0 pt-1'>
   <div class="container">
 
-    <h1 class="d-flex justify-content-center mt-0">Mes contacts</h1>
+    <h2 class="d-flex justify-content-start">Mes contacts
+          <%= link_to new_family_contact_path(@family) do %>
+            <i class="far fa-plus-square iconcolor"></i>
+          <% end %>
+    </h2>
 
-    <table>
+    <table class="contact-table">
 
       <thead>
+
         <tr class="header">
           <th scope="col">Name</th>
           <th scope="col">email</th>

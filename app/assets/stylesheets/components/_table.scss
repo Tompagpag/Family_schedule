@@ -1,22 +1,27 @@
-table {
+.contact-table {
   width: 100%;
   border: 3px solid #1D7A8C;
   border-radius: 5px;
 }
 
-thead {
+.contact-table > thead {
   font-size: 30px;
   background-color: #1D7A8C;
   color: white;
   font-family: $headers-font;
 }
 
-tbody {
+.contact-table > tbody {
   font-size: 20px;
   background-color: white;
   opacity: 0.9;
 }
 
-th {
+.contact-table > th {
   padding: 2px 6px
+}
+
+.iconcolor {
+  font-size: 50px;
+  color: #1D7A8C
 }

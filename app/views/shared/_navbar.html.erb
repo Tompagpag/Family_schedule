@@ -1,5 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+
     <div class="logo">
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo_size.png" %>
@@ -14,14 +15,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Réserver une baby-sitter", "https://babysittor.com/fr", target: 'blank', class: "nav-link"  %></i>
-            </li>
             <li class="nav-item">
               <%= link_to "Mes contacts", family_contacts_path(current_user.family), class: "nav-link" %>
             </li>
+            <li class="nav-item active">
+              <%= link_to "Allô babysitter!", "https://babysittor.com/fr", target: 'blank', class: "nav-link"  %></i>
+            </li>
             <li class="nav-item">
-              <%= link_to "Synchroniser mon calendrier", family_path(current_user.family), class: "nav-link" %>
+              <%= link_to "Ajouter depuis Gmail", family_path(current_user.family), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
