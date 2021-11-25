@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <div class="form-wrapper" style="width: 400px; margin: 10px auto;">
+    <h1>Ajouter un événement</h1>
+      <%= simple_form_for [@event] do |f| %>
+      <div class="d-flex">
+        <div class="row col-10">
+          <%= f.input :family_member, collection: current_user.family.family_members, label: 'ajoute un membre' %>
+          <%= f.input :title, label: "titre d'événement" %>
+          <%= f.input :start_at, label: 'début' %>
+          <%= f.input :end_at, label: 'fin' %>
+          <%= f.input :comment, label: 'le commentaire' %>
+        </div>
+      </div>
+      <%= f.submit 'créer votre événement', class: "btn btn-flat" %>
+    <% end %>
+  </div>
+</div>

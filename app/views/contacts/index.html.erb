@@ -1,14 +1,30 @@
 <div class='container-fluid p-0 pt-1'>
   <div class="container">
-      <h1 class="d-flex justify-content-center">Mes contacts</h1>
-      <div class="card card-contact">
+
+    <h1 class="d-flex justify-content-center mt-0">Mes contacts</h1>
+
+    <table>
+
+      <thead>
+        <tr class="header">
+          <th scope="col">Name</th>
+          <th scope="col">email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Comment</th>
+        </tr>
+      </thead>
+      <tbody>
         <% @contacts.each do |contact| %>
-          <p><%= contact.first_name %></p>
-          <p><%= contact.last_name %></p>
-          <p><%= contact.email %></p>
-          <p><%= contact.phone_number %></p>
-          <p><%= contact.comment %></p>
+          <tr>
+            <th scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></th>
+            <th scope="row"><em><%= contact.email %></em></th>
+            <th scope="row"><%= contact.phone_number %></th>
+            <th scope="row"><%= contact.comment %></th>
+          </tr>
         <% end %>
-    </div>
+      </tbody>
+
+    </table>
+
   </div>
 </div>
