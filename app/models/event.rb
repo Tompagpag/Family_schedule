@@ -59,20 +59,20 @@ class Event < ApplicationRecord
   end
 
   def created_childevent_iscovered_by_parentevent?
-    dad_events.any? { |event| event.time_range.cover?(self.time_range) } &&
-    mum_events.any? { |event| event.time_range.cover?(self.time_range) }
+    Array(dad_events).any? { |event| event.time_range.cover?(self.time_range) } &&
+    Array(mum_events).any? { |event| event.time_range.cover?(self.time_range) }
   end
 
   def childevent_iscovered_by_created_parentevent?
-    children_events.any? { |event| self.time_range.cover?(event.time_range) }
+    Array(children_events).any? { |event| self.time_range.cover?(event.time_range) }
   end
 
   def parents_events_overlap?
-    if dad_events.include?(self)
-      mum_events.any? { |event| event.time_range.overlaps?(self.time_range) }
+    if Array(dad_events).include?(self)
+      Array(mum_events).any? { |event| event.time_range.overlaps?(self.time_range) }
     end
-    if mum_events.include?(self)
-      dad_events.any? { |event| event.time_range.overlaps?(self.time_range) }
+    if Array(mum_events).include?(self)
+      Array(dad_events).any? { |event| event.time_range.overlaps?(self.time_range) }
     end
   end
 
