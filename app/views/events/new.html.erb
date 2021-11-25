@@ -1,17 +1,21 @@
-<div class="container mt-4">
-  <div class="form-wrapper" style="width: 400px; margin: 10px auto;">
-    <h2>Ajouter un événement</h2>
-      <%= simple_form_for [@family, @event] do |f| %>
-      <div class="d-flex">
-        <div class="row col-10">
-          <%= f.input :family_member, collection: current_user.family.family_members, label: 'Ajoute un membre' %>
-          <%= f.input :title, label: "Titre" %>
-          <%= f.input :start_at, label: 'Début' %>
-          <%= f.input :end_at, label: 'Fin' %>
-          <%= f.input :comment, label: 'Commentaire' %>
-        </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4 bg-white mt-5">
+      <div class="form-wrapper" style="width: 400px; margin: 10px auto;">
+        <h2>Ajouter un événement</h2>
+          <%= simple_form_for [@family, @event] do |f| %>
+          <div class="d-flex">
+            <div class="row col-10">
+              <%= f.input :family_member, collection: current_user.family.family_members, label: 'Ajoute un membre' %>
+              <%= f.input :title, label: "Titre" %>
+              <%= f.input :start_at, label: 'Début' %>
+              <%= f.input :end_at, label: 'Fin' %>
+              <%= f.input :comment, label: 'Commentaire' %>
+            </div>
+          </div>
+          <%= f.submit 'créer votre événement', class: "btn btn-flat" %>
+        <% end %>
       </div>
-      <%= f.submit 'créer votre événement', class: "btn btn-flat" %>
-    <% end %>
+    </div>
   </div>
 </div>
