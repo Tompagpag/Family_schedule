@@ -16,6 +16,9 @@
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
             <li class="nav-item">
+              <%= link_to "Mon Family Schedule", family_conflicts_path(current_user.family), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
               <%= link_to "Mes contacts", family_contacts_path(current_user.family), class: "nav-link" %>
             </li>
             <li class="nav-item active">
