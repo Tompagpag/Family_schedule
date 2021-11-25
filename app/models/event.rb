@@ -8,29 +8,34 @@ class Event < ApplicationRecord
   # of after update event ?
 
   def set_conflict
-
     # children_events = family.children_events(start_at.day).where.not(id: id)
     # parent_events = family.events(start_at.day).where.not(id: id)
-
     if !parent_event?
       if created_childevent_iscovered_by_parentevent?
         generateconflict('transport')
+        findotherconflicts
       end
     end
 
     if parent_event? && parents_events_overlap?
       if children_events.none?
         generateconflict('babysitter')
+        findotherconflicts
+          otherconflicts = family.events.all? { |event| event.time_range.overlaps? self.time_range }
       end
       if childevent_iscovered_by_created_parentevent?
         array = Array(children_events).map { |event| self.time_range.cover?(event.time_range) }
         array.each do |element|
-          generateconflict('transport') if element == true
+          if element == true
+            generateconflict('transport')
+            findotherconflicts
+          end
         end
       end
     end
 
   end
+
 
   def offset_conflict
     # Pour régler un conflit : set un contact_id (= babysitter)
