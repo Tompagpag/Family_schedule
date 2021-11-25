@@ -2,6 +2,7 @@
   align-items: center;
   background-color: #fffffff2;
 }
+
 .container-fluid {
   // justify-content: unset !important;
 }
@@ -17,4 +18,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 100px;
+}
+
+.nav-link {
+  font-size: 18px;
+  margin: 0px 10px;
+  &:hover {
+    border-bottom: 2px solid $light-gray;
+  }
 }

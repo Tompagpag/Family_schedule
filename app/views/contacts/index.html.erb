@@ -3,9 +3,14 @@
 
     <h1 class="d-flex justify-content-center mt-0">Mes contacts</h1>
 
-    <table>
+    <table class="contact-table">
 
       <thead>
+        <div class= "d-flex justify-content-end addcontact">
+          <%= link_to new_family_contact_path(@family) do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        </div>
         <tr class="header">
           <th scope="col">Name</th>
           <th scope="col">email</th>
