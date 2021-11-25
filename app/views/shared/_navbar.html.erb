@@ -15,19 +15,17 @@
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
             <li class="nav-item active">
-              <%= link_to "Réserve une baby-sitter", "https://babysittor.com/fr", target: 'blank', class: "nav-link"  %></i>
+              <%= link_to "Réserver une baby-sitter", "https://babysittor.com/fr", target: 'blank', class: "nav-link"  %></i>
             </li>
             <li class="nav-item">
-              <%= link_to "Mes contacts", "http://localhost:3000/families/1/contacts", class: "nav-link" %>
+              <%= link_to "Mes contacts", family_contacts_path(current_user.family), class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Ajoute un événement", "http://localhost:3000/families/1/contacts", class: "nav-link" %>
+              <%= link_to "Synchroniser mon calendrier", family_path(current_user.family), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Action", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>

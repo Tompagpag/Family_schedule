@@ -1,5 +1,6 @@
 .btn-flat {
   color: white;
+  font-family: 'Amatic SC', cursive;
   font-size: 30px;
   padding: 8px 24px;
   border-radius : 30px;
@@ -11,9 +12,26 @@
   }
 }
 
+.btn-flat-full {
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 8px 24px;
+  border-radius : 30px;
+  background: #1D7A8C;
+  transition: background 0.3s ease;
+    &:hover {
+    background: #70b7c5;
+    color: white;
+  }
+}
 
 .btn-orange {
   margin-left : 8px;
+  font-family: 'Amatic SC', cursive;
   font-size: 30px;
   background-color: #F08B75;
   border: 2px solid #F08B75;
@@ -31,6 +49,7 @@
 
 .btn-orange-reverse {
   font-size: 30px;
+  font-family: 'Amatic SC', cursive;
   margin-left : 8px;
   padding: 10px;
   background-color: none;
@@ -41,5 +60,22 @@
     color: white;
     margin-left : 8px;
     color: #f1b4a7;
+  }
+};
+
+  .btn-round {
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  padding: 14px;
+  font-size: 25px;
+  height: 110px;
+  width: 110px;
+  border-radius : 50%;
+  background: #1D7A8C;
+  border: 1px black;
+  transition: background 0.3s ease;
+    &:hover {
+    background: #70b7c5;
+    color: white;
   }
 };

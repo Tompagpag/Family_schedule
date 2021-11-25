@@ -17,11 +17,11 @@ class Family < ApplicationRecord
   end
 
   def dad_events(day)
-    parents_events(day).first
+    parents_events(day)[0]
   end
 
   def mum_events(day)
-    parents_events(day).last
+    parents_events(day)[1]
   end
 
   private

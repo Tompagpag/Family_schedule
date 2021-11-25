@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 Family.destroy_all
 User.destroy_all
@@ -19,5 +20,16 @@ family = Family.create(last_name: "My family")
 
 FamilyMember.create(first_name: "John", last_name: "Doe", admin: true, family: family, user: john, email: "johndoe.familyschedule@gmail.com")
 FamilyMember.create(first_name: "Jane", last_name: "Doe", admin: true, family: family, user: jane, email: "janedoe.familyschedule@gmail.com")
-FamilyMember.create(first_name: "Jules", last_name: "Doe", admin: false, family: family)
-FamilyMember.create(first_name: "Lola", last_name: "Doe", admin: false, family: family)
+jules = FamilyMember.create(first_name: "Jules", last_name: "Doe", admin: false, family: family)
+lola = FamilyMember.create(first_name: "Lola", last_name: "Doe", admin: false, family: family)
+
+Event.create(title: "tennis", start_at: "2021-12-01-12:30", end_at: "2021-12-01-12:45", family: family, family_member: jules)
+Event.create(title: "danse", start_at: "2021-12-01-12:30", end_at: "2021-12-01-14:00", family: family, family_member: lola)
+
+10.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  email = Faker::Internet.email
+  phone_number = Faker::PhoneNumber.phone_number
+  Contact.create(first_name: first_name, last_name: last_name, email: email, phone_number: phone_number, family: family)
+end
