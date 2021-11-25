@@ -13,7 +13,7 @@
             <h6><%= event.family_member.first_name %> :<%= event.title %> </h6>
             <h6><%= event.start_at.strftime("%Hh%M") %> - <%= event.end_at.strftime("%Hh%M") %></h6>
             <% unless event.conflict.nil? %>
-              <h6 class="conflict" data-calendar-target="conflict"><%= event.conflict.conflict_type%></h6>
+              <h6 class="conflict" data-calendar-target="conflict"><%= link_to event.conflict.conflict_type, %></h6>
             <% end %>
           </div>
         <% end %>

@@ -8,4 +8,8 @@ class FamilyMember < ApplicationRecord
   def associate_user
     self.user = User.find_by(email: email) if email.present?
   end
+
+  def name
+    first_name
+  end
 end
