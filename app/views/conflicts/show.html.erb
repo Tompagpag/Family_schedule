@@ -4,13 +4,8 @@
 
 <h2><%= @conflict.events.first.start_at.strftime('%d-%b-%y') %></h2>
 <div class="container">
-  <div class="conflict-details"><%= @conflict %></div>
-  <div class="events-of-day">
-    <% @events.each do |event| %>
-      <%= event.start_at.strftime("%y - %m - %d") %> <br>
-    <% end %>
-  </div>
-
+  <div class="card conflict-details"><%= @conflict.b %></div>
+<div class="card">contacts</div>
 </div>
 
 
@@ -20,5 +15,3 @@
 
 
 <%= link_to "My family schedule", family_conflicts_path(:family_id) %>
-
-<%= link_to 'Import', calendar_redirect_path, class: "btn btn-danger" %>
