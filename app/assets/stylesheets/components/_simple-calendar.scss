@@ -64,7 +64,8 @@ h2 {
     }
   }
 
-  .day {}
+  .day {
+  }
 
   .wday-0 {}
   .wday-1 {}
@@ -91,8 +92,9 @@ h2 {
   .current-month {}
 
   .has-events {
-    background-color: #ED8074;
+
   }
+
 
   .has-events h6 {
 
@@ -109,6 +111,6 @@ h2 {
     font-weight: bold;
  }
   .day-events {
-    background-color: #ED8074;
+
   }
 }
