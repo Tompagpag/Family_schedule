@@ -101,32 +101,37 @@ h2 {
     border-radius: 50%;
   }
 
- span {
-    color: white;
-    font-weight: bold;
- }
- .conflict {
-   background: blue;
- }
+  span {
+      color: white;
+      font-weight: bold;
+  }
+  .conflict {
+      background: #db5343;
+      color: white;
+      border-radius: 5px;
+  }
 
- .parent-conflict-bg {
-    background: #ED8074 !important;
-    .has-events {
-      opacity: 1;
-    }
- }
+  .parent-conflict-bg {
+      background: #ED8074 !important;
+  }
 
 
- h6 {
-    font-family: 'Overpass', sans-serif;
- }
- a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
- }
+  h6 {
+      font-family: 'Overpass', sans-serif;
+  }
+  a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+  }
   .day-events {
 
+  }
+
+  tr:nth-of-type(2n+1) > td.parent-conflict-bg {
+    --bs-table-accent-bg: none;
+    // color: var(--bs-table-striped-color);
+    // background: red;
   }
 }

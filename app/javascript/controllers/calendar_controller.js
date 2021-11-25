@@ -8,6 +8,7 @@ export default class extends Controller {
     this.conflictTargets.forEach((conflict) => {
       if (conflict.classList.contains('conflict')) {
         conflict.closest('.day').classList.add("parent-conflict-bg");
+        // conflict.closest('.day').classList.remove("has-events");
         // conflict.closest('.test').classList.add("test-circle");
       }
     })
