@@ -43,3 +43,18 @@
     color: #f1b4a7;
   }
 };
+
+  .btn-round {
+  color: white;
+  font-size: 25px;
+  height: 100px;
+  width: 100px;
+  border-radius : 50%;
+  background: #1D7A8C;
+  border: 1px black;
+  transition: background 0.3s ease;
+    &:hover {
+    background: #70b7c5;
+    color: white;
+  }
+};
