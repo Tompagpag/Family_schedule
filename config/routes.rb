@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/design', to: 'pages#design'
 
   resources :families, only: [:show, :new, :create] do
+    resources :events, only: [:new, :create]
     resources :family_members, only: [:create]
     resources :conflicts, only: [:index, :create, :show, :update]
     resources :contacts, only: [:index, :new, :create, :destroy]
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
   #   resources :events, only: [:new, :index, :create, :edit, :update, :destroy]
   # end
 
-  resources :events, only: [:new, :create]
 
   get '/calendar/callback', to: 'calendar#callback'
   get '/calendar/redirect', to: 'calendar#redirect'
