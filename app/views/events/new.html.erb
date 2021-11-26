@@ -8,8 +8,8 @@
             <div class="row col-10">
               <%= f.input :family_member, collection: current_user.family.family_members, label: 'Ajoute un membre' %>
               <%= f.input :title, label: "Titre" %>
-              <%= f.input :start_at, label: 'Début' %>
-              <%= f.input :end_at, label: 'Fin' %>
+              <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker" }, label: "Début" %>
+              <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin" %>
               <%= f.input :comment, label: 'Commentaire' %>
             </div>
           </div>
