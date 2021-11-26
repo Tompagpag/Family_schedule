@@ -44,7 +44,15 @@ class CalendarController < ApplicationController
       authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
       token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
       scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-      redirect_uri: calendar_callback_url
+      redirect_uri: callback_url
     }
+  end
+
+  def callback_url
+    if Rails.env.production?
+      "https://www.family-schedule.co.uk/calendar/callback"
+    else
+      calendar_callback_url
+    end
   end
 end
