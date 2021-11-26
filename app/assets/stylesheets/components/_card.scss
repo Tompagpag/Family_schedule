@@ -2,24 +2,65 @@
     border-radius: 20px;
     border-top: none;
     box-shadow: 0px 5px 8px 2px rgba(124,124,124,0.7);
-
 }
 
-#conflict-container h2 {
+#conflict-container h1 {
+  margin-top: 0px;
   margin-bottom: 4vh;
+  text-align: center;
+  font-size: 70px;
 }
 
 #conflict-container .conflict-details {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
   margin-bottom: 5vh;
-  align-items: center;
+  justify-content: space-around;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+#conflict-container .conflict-details .user-event-conflict {
+  width: 50%;
+  padding: 2vh;
+}
+
+#conflict-container .conflict-details h2 {
+  font-size: 2.5rem;
+  color: black;
+}
+
+#conflict-container .conflict-details h3 {
+  font-family: 'Overpass', sans-serif;
+  font-size: 1.5rem;
+}
+
+#conflict-container #conflict-hours {
+    color: #ED8074;
 }
 
 #conflict-container .help-options {
   display: flex;
   text-align: center;
+  flex-direction: row;
   margin-bottom: 5vh;
+  margin-top: 1vh;
+  justify-content: space-around;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
-#conflict-container .babysitter {
-  margin-top: 1vh;
+#conflict-container .update-conflict-event img {
+  width: 50px;
+  height: 50px;
+}
+
+#conflict-container .help-options a {
+  color: grey;
+  font-size: 1.20rem;
+    &:hover {
+    border-bottom: 2px solid $light-gray;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
 }
