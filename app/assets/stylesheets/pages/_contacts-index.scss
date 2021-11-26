@@ -1,6 +1,8 @@
 .contact-table {
   overflow: hidden;
   background: white;
+  font-size: 22px;
+  border: none;
 
   #n1 {
     padding-left: 29px;
@@ -12,15 +14,25 @@
     }
   }
 
-  table {
-    width: 100%;
-
-    thead {
-      background: $my-blue;
-      color: white;
+  tbody tr {
+    padding-top: 10px;
+    &:nth-of-type(2n+1) {
+    background: #F2F2F2;
     }
   }
+
+  thead {
+    background: $my-blue;
+    color: white;
+    height: 82px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .header {
+    font-size: 26px;
+    font-weight: bold;
+  }
 }
-
-
-    // padding-left: 28px;
