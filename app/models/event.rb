@@ -17,7 +17,6 @@ class Event < ApplicationRecord
 
     return unless conflict_events_with_other_parent.any?
 
-
     if children_events.none?
       generate_conflict('babysitter', conflict_events_with_other_parent)
     elsif conflict_events_with_child.any?
