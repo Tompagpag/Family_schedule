@@ -1,0 +1,26 @@
+.contact-table {
+  overflow: hidden;
+  background: white;
+
+  #n1 {
+    padding-left: 29px;
+  }
+
+  tbody tr th {
+    &:first-child{
+      padding-left: 28px;
+    }
+  }
+
+  table {
+    width: 100%;
+
+    thead {
+      background: $my-blue;
+      color: white;
+    }
+  }
+}
+
+
+    // padding-left: 28px;
