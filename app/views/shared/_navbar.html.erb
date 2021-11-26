@@ -28,7 +28,7 @@
               <%= link_to "Ajouter depuis Gmail", family_path(current_user.family), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <%= image_tag "/assets/JLM.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-1024.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
