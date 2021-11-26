@@ -2,16 +2,43 @@
 
 
 
-<h2><%= @conflict.events.first.start_at.strftime('%d-%b-%y') %></h2>
-<div class="container">
-  <div class="card conflict-details"><%= @conflict.b %></div>
-<div class="card">contacts</div>
+
+<div class="container" id="conflict-container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 bg-white mt-5">
+      <h1><%= @conflict.events.first.start_at.strftime('%d-%b-%y') %></h1>
+      <div class="card conflict-details">
+        <% @conflict.events.each do |event|%>
+          <div class="user-event-conflict">
+            <h2><%= event.family_member.first_name %></h2>
+            <h3><%= event.title %></h3>
+            <h3 id="conflict-hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h3>
+            <p><%= event.comment %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="card help-options">
+        <div class="babysitter">
+          <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
+            <h3><%= image_tag "https://img.icons8.com/external-victoruler-linear-colour-victoruler/50/000000/external-babysitter-baby-victoruler-linear-colour-victoruler.png" %></h3>
+            <%= "Allô babysitter!" %>
+          <% end %>
+
+        </div>
+        <div class="call-someone">
+          <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
+            <h3><%= image_tag "https://img.icons8.com/external-wanicon-lineal-color-wanicon/50/000000/external-call-work-at-home-wanicon-lineal-color-wanicon.png" %></h3>
+            <%= "Appeler un proche" %>
+          <% end %>
+        </div>
+
+        <div class="update-conflict-event">
+          <%= link_to root_path, target: 'blank' do %>
+            <h3><%= image_tag "https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-update-copywriting-soft-fill-soft-fill-juicy-fish.png" %></h3>
+            <%= "Modifier l'évènement" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
-
-
-
-<%= link_to "My family schedule", family_conflicts_path(:family_id) %>
