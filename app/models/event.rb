@@ -11,7 +11,6 @@ class Event < ApplicationRecord
     # children_events = family.children_events(start_at.day).where.not(id: id)
     # parent_events = family.events(start_at.day).where.not(id: id)
 
-
     if child_event? && conflict_events_with_any_parent.any?
       generate_conflict('transport', conflict_events_with_any_parent)
     end

@@ -1,4 +1,3 @@
-
 h2 {
       font-size: 60px;
       color: #1D7A8C;
@@ -7,25 +6,33 @@ h2 {
 
 .simple-calendar {
   border: 0;
-  background-color: white;
-  // font-size: 40px;
   font-family: 'Overpass', sans-serif;
   .table {
     border-radius: 20px;
     overflow: hidden;
     border: none;
-
   }
 
   .calendar-heading {
       display: flex;
       justify-content: space-around;
-      background: #ED8074;
-      color: white;
+      align-items: center;
+      margin-bottom: 10px;
+      // background: #ED8074;
+      // color: white;
+      height: 80px;
       padding: 10px 0;
       border-radius: 20px 20px 0 0;
+    > span {
+      // color: white;
+      font-size: 40px;
+      background-color: white;
+    }
   }
+
   thead {
+    background-color: #1D7A8C;
+    color: white;
     height: 10vh;
     th {
       text-align: center;
@@ -47,6 +54,7 @@ h2 {
   }
 
   tbody {
+    background-color: white;
     tr {
       td {
         // border-bottom-color: grey;
@@ -101,10 +109,6 @@ h2 {
     border-radius: 50%;
   }
 
-  span {
-      color: white;
-      font-weight: bold;
-  }
   .conflict {
       background: #db5343;
       color: white;

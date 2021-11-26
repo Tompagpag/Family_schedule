@@ -3,36 +3,34 @@
 
     <div class="calendar-title">
       <h2>Mes contacts</h2>
-      <div class="icon">
-        <%= link_to new_family_contact_path(@family) do %>
-          <i class="far fa-plus-square iconcolor"></i>
-        <% end %>
-      </div>
+      <%= link_to new_family_contact_path(@family) do %>
+        <i class="far fa-plus-square iconcolor"></i>
+      <% end %>
     </div>
 
-    <table class="contact-table">
-
-      <thead>
-
-        <tr class="header">
-          <th scope="col">Name</th>
-          <th scope="col">email</th>
-          <th scope="col">Phone Number</th>
-          <th scope="col">Comment</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @contacts.each do |contact| %>
-          <tr>
-            <th scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></th>
-            <th scope="row"><em><%= contact.email %></em></th>
-            <th scope="row"><%= contact.phone_number %></th>
-            <th scope="row"><%= contact.comment %></th>
+    <div class="contact-table">
+      <table>
+        <thead>
+          <tr class="header">
+            <th scope="col">Name</th>
+            <th scope="col">email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Comment</th>
           </tr>
-        <% end %>
-      </tbody>
+        </thead>
 
-    </table>
+        <tbody>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <th scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></th>
+              <th scope="row"><em><%= contact.email %></em></th>
+              <th scope="row"><%= contact.phone_number %></th>
+              <th scope="row"><%= contact.comment %></th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </div>

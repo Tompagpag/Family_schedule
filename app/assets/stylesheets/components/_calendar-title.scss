@@ -1,15 +1,16 @@
 .calendar-title {
   display: flex;
+  align-items: center;
   margin-bottom: 30px;
   margin-top: 30px;
 }
 
 .calendar-title > h2 {
   background-color: white;
+  margin-right: 20px;
 }
 
-.calendar-title > .icon {
+.calendar-title > .iconcolor {
   font-size: 50px;
-  margin-left: 20px;
   color: #70b7c5;
 }
