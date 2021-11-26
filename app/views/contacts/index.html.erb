@@ -20,8 +20,8 @@
         </thead>
 
         <tbody>
-          <% @contacts.each do |contact| %>
-            <tr>
+          <% @contacts.each_with_index do |contact, index| %>
+            <tr class="">
               <th scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></th>
               <th scope="row"><em><%= contact.email %></em></th>
               <th scope="row"><%= contact.phone_number %></th>
