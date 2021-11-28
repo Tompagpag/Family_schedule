@@ -24,9 +24,14 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @family = Family.find(params[:family_id])
+    @event = Event.find(params[:id])
   end
 
   def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to family_conflicts_path
   end
 
   def destroy

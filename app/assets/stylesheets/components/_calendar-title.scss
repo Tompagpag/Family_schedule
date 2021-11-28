@@ -1,11 +1,13 @@
 .calendar-title {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
-  margin-top: 30px;
+  background: white;
+  width: fit-content;
 }
 
 .calendar-title > h2 {
+  font-size: 60px;
+  color: #1D7A8C;
   background-color: white;
   margin-right: 20px;
 }

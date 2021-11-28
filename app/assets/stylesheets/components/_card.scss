@@ -1,46 +1,41 @@
-#conflict-container .card {
+
+.test .card {
     border-radius: 20px;
     border-top: none;
     box-shadow: 0px 5px 8px 2px rgba(124,124,124,0.7);
 }
 
-#conflict-container h1 {
-  margin-top: 0px;
-  margin-bottom: 4vh;
-  text-align: center;
-  font-size: 70px;
-}
-
-#conflict-container .conflict-details {
-  display: flex;
-  text-align: center;
-  flex-direction: row;
+.test .details {
   margin-bottom: 5vh;
-  justify-content: space-around;
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
 
-#conflict-container .conflict-details .user-event-conflict {
-  width: 50%;
+.test .details .user-event {
+  display: flex;
+  justify-content: start;
   padding: 2vh;
 }
 
-#conflict-container .conflict-details h2 {
-  font-size: 2.5rem;
-  color: black;
+.test .true {
+  color:red
 }
 
-#conflict-container .conflict-details h3 {
-  font-family: 'Overpass', sans-serif;
+.test .details h2 {
   font-size: 1.5rem;
+  color: #ED8074;
+  margin: 0px 10px;
 }
 
-#conflict-container #conflict-hours {
-    color: #ED8074;
+.test .details h3 {
+  display: flex;
+  align-items: center;
+  font-family: 'Overpass', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
-#conflict-container .help-options {
+.test .help-options {
   display: flex;
   text-align: center;
   flex-direction: row;
@@ -51,12 +46,12 @@
   padding-bottom: 3vh;
 }
 
-#conflict-container .update-conflict-event img {
+.test .update-conflict-event img {
   width: 50px;
   height: 50px;
 }
 
-#conflict-container .help-options a {
+.test .help-options a {
   color: grey;
   font-size: 1.20rem;
     &:hover {
@@ -64,3 +59,11 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   }
 }
+
+
+// #conflict-container h1 {
+//   margin-top: 0px;
+//   margin-bottom: 4vh;
+//   text-align: center;
+//   font-size: 70px;
+// }
