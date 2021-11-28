@@ -14,11 +14,11 @@ export default class extends Controller {
 
   display() {
     this.updateConflictTargets.forEach((div) => {
-      if (div.closest('user-event').attr('class').contains("true")) {
+      if (div.closest('.user-event').classList.contains("true")) {
         div.classList.remove("d-none")
       }
     })
-  }
+  };
 
   // this.daysTargets.forEach((calendarDay) => {
   //   // console.log(Date.now())
