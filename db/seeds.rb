@@ -35,7 +35,7 @@ Event.create(title: "danse", start_at: "2021-12-01-12:30", end_at: "2021-12-01-1
 # end
 
 Contact.create!(first_name: "Jean-Pierre", last_name: "Desrosiers", email: "jpdesrosiers@hotmail.com", phone_number: "0682251042", comment: "grand-père", family: family)
-Contact.create!(first_name: "Michèle", last_name: "Desrosiers", email: "mdesrosiers1949@hotmail.com", phone_number: "06948017",  comment: "grand-mère", family: family)
+Contact.create!(first_name: "Michèle", last_name: "Desrosiers", email: "mdesrosiers1949@hotmail.com", phone_number: "0694801719",  comment: "grand-mère", family: family)
 Contact.create!(first_name: "Louis", last_name: "Lafont", email: "llafont@gmail.com", phone_number: "0186339820", comment: "grand-père", family: family)
 Contact.create!(first_name: "Bernadette", last_name: "Lafont", email: "bernadette.lafont@gmail.com", phone_number: "0186339820", comment: "grand-mère", family: family)
 Contact.create!(first_name: "Brigitte", last_name: "Berto", email: "berto.brigitte@gmail.com", phone_number: "0652074409", comment: "baby-sitter", family: family)
