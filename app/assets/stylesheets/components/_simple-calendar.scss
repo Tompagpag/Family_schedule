@@ -1,10 +1,7 @@
-h2 {
-      font-size: 60px;
-      color: #1D7A8C;
-      text-align: center;
-    }
-
 .simple-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 0;
   font-family: 'Overpass', sans-serif;
   .table {
@@ -14,13 +11,14 @@ h2 {
   }
 
   .calendar-heading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 10px;
-      height: 80px;
-      padding: 10px 0;
-      border-radius: 20px 20px 0 0;
+    display: flex;
+    width: fit-content;
+    background: white;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 80px;
+    padding: 10px 0;
+    border-radius: 20px 20px 0 0;
     > span {
       font-size: 40px;
       background-color: white;
@@ -28,8 +26,7 @@ h2 {
     }
   }
 
-  a {
-    color: black;
+  .calendar-heading > a {
     text-decoration: none;
     font-size: 40px;
     font-weight: bold;
@@ -57,13 +54,6 @@ h2 {
     }
   }
 
-  td  {
-    text-align: center;
-    padding: 6px;
-    vertical-align: top;
-    width: 14%;
-  }
-
   tbody {
     background-color: white;
     tr {
@@ -83,52 +73,66 @@ h2 {
     }
   }
 
-  .day {
+  td  {
+    text-align: center;
+    padding: 6px;
+    vertical-align: top;
+    width: 14%;
   }
 
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
+  .eventattention {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .attention {
+    height: 30px;
+    transform: rotate(10deg);
+    margin-left: 10px;
+  }
 
   .today {
-    background: #1D7A8C;
+    background: green;
   }
-  .past {}
-  .future {}
 
-  .start-date {}
-
-  .prev-month {
+  .prev-month .next-month {
     background: #BFBFBF;
   }
-  .next-month {
-    background: #BFBFBF;
-  }
-  .current-month {}
 
   .has-events {
-    background: #f3b3ac;
-  }
-
-  .day_number {
-    border: 1px solid grey;
-    border-radius: 50%;
-  }
-
-  h6 {
-    font-family: 'Overpass', sans-serif;
+    background: #facac5;
   }
 
   tr:nth-of-type(2n+1) > td.parent-conflict-bg {
     --bs-table-accent-bg: none;
   }
+
+  .currentDay {
+    border: 1px solid green;
+  }
+
+  .editIcon {
+    height: 1.2rem;
+    margin-left: 10px;
+  }
+
 }
 
-#conflict-button {
-  color: white;
-  font-size: 20px;
-}
+// .past {}
+// .future {}
+// .day {
+// }
+// .wday-0 {}
+// .wday-1 {}
+// .wday-2 {}
+// .wday-3 {}
+// .wday-4 {}
+// .wday-5 {}
+// .wday-6 {}
+// .start-date {}
+// .current-month {}
+// .day_number {
+//   border: 1px solid grey;
+//   border-radius: 50%;
+// }

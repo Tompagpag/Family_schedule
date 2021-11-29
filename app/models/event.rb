@@ -7,10 +7,13 @@ class Event < ApplicationRecord
   after_create_commit :set_conflict
   # of after update event ?
 
+  def conflict?
+    return "true" if conflict_id.present?
+  end
+
   def set_conflict
     # children_events = family.children_events(start_at.day).where.not(id: id)
     # parent_events = family.events(start_at.day).where.not(id: id)
-
     if child_event? && conflict_events_with_any_parent.any?
       generate_conflict('transport', conflict_events_with_any_parent)
     end
@@ -23,7 +26,6 @@ class Event < ApplicationRecord
       generate_conflict('transport', conflict_events_with_other_parent + conflict_events_with_child)
     end
   end
-
 
   def offset_conflict
     # Pour régler un conflit : set un contact_id (= babysitter)
