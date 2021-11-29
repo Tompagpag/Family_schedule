@@ -32,7 +32,7 @@ class CalendarController < ApplicationController
       )
     end
 
-    redirect_to root_path
+    redirect_to family_conflicts_path(current_user.family)
   end
 
   private
