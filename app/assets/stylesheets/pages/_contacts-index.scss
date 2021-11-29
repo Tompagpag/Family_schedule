@@ -5,16 +5,16 @@
   border: none;
   text-align: center;
 
-  #n1 {
-    padding-left: 29px;
-  }
+  // #n1 {
+  //   padding-left: 29px;
+  // }
 
   tbody tr th {
     padding-top: 15px;
     padding-bottom: 15px;
-    &:first-child{
-      padding-left: 28px;
-    }
+    // &:first-child{
+    //   padding-left: 28px;
+    // }
   }
 
   tbody tr {
@@ -24,10 +24,14 @@
     }
   }
 
+  tbody tr:first-child td {
+    padding-top: 20px;
+  }
+
   thead {
-    background: $my-blue;
-    color: white;
-    height: 82px;
+    color: #777777;
+    text-transform: uppercase;
+    // height: 82px;
   }
 
   table {
@@ -35,8 +39,13 @@
   }
 
   .header {
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
+    border-bottom: 2px solid grey;
+
+    th {
+      padding-bottom: 14px;
+    }
   }
 
   a {

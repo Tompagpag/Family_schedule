@@ -12,7 +12,7 @@
       <table>
         <thead>
           <tr class="header">
-            <th scope="col" id="n1">Nom</th>
+            <th scope="col" id="n1"><div>Nom</div></th>
             <th scope="col">Email</th>
             <th scope="col">Téléphone</th>
             <th scope="col">Type de connaissance</th>
@@ -22,10 +22,10 @@
         <tbody>
           <% @contacts.each_with_index do |contact, index| %>
             <tr class="">
-              <th scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></th>
-              <th scope="row"><a href="mailto:<%= contact.email %>"><%= contact.email %></a></th>
-              <th scope="row"><%= contact.phone_number %></th>
-              <th scope="row"><%= contact.comment %></th>
+              <td scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></td>
+              <td scope="row"><a href="mailto:<%= contact.email %>"><%= contact.email %></a></td>
+              <td scope="row"><%= contact.phone_number %></td>
+              <td scope="row"><%= contact.comment %></td>
             </tr>
           <% end %>
         </tbody>
