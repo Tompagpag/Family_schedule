@@ -7,12 +7,14 @@
     <% end %>
   </div>
 
+
   <%= month_calendar(events: @events, attribute: :start_at) do |date, events| %>
-    <div data-controller="calendar" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="test h-100">
-      <div data-calendar-target="days"><%= date.day %></div>
-      <div class="eventattention">
+    <div data-controller="calendar" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100 test">
+      <div class="date-number"><%= date.day %></div>
+      <div class="countevents">
         <div><% if events.present? %><div><%= events.count %> events<% end %></div>
       </div>
+
       <div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -24,8 +26,10 @@
               <div class="card details">
                 <% events.each do |event|%>
                   <div class="user-event <%= event.conflict? %>">
-                    <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
-                    <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+                    <div class="d-flex" data-calendar-target="<%= event.conflict? %>">
+                      <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
+                      <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+                    </div>
                     <div class="d-none" data-calendar-target="updateConflict">
                     <%= link_to edit_family_event_path(current_user.family, event.id) do %>
                       <img class="editIcon" src="https://img.icons8.com/material-outlined/50/000000/edit.png"/>
@@ -65,6 +69,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
   <% end %>
 
