@@ -14,9 +14,9 @@
 
     <div data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100">
       <div class="date-number"><%= date.day %></div>
-      <% if events.present? %>
-        <div class="countevents"><%= events.count %> events</div>
-      <% end %>
+      <div class="countevents">
+        <% if events.present? %><%= pluralize(events.count, "event") %><% end %>
+      </div>
     </div>
 
     <div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModal-<%= date %>Label" aria-hidden="true">
@@ -46,23 +46,23 @@
               <% end %>
             </div>
             <div class="card help-options">
-              <div class="babysitter">
+              <div class="babysitter col-4">
                 <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
-                  <h3><%= image_tag "https://img.icons8.com/external-victoruler-linear-colour-victoruler/50/000000/external-babysitter-baby-victoruler-linear-colour-victoruler.png" %></h3>
+                  <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
                   <%= "Allô babysitter!" %>
                 <% end %>
 
               </div>
-              <div class="call-someone">
+              <div class="call-someone col-4">
                 <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
-                  <h3><%= image_tag "https://img.icons8.com/external-wanicon-lineal-color-wanicon/50/000000/external-call-work-at-home-wanicon-lineal-color-wanicon.png" %></h3>
+                  <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
                   <%= "Appeler un proche" %>
                 <% end %>
               </div>
 
-              <div class="update-conflict-event" data-action="click->calendar#display">
-                <h3><%= image_tag "https://img.icons8.com/external-soft-fill-juicy-fish/60/000000/external-update-copywriting-soft-fill-soft-fill-juicy-fish.png" %></h3>
-                <p><%= "Modifier l'évènement" %></p>
+              <div class="update-conflict-event col-4" data-action="click->calendar#display">
+                <h3><%= image_tag "icons8-modifier-64.png" %></h3>
+                <a><%= "Modifier l'évènement" %></a>
               </div>
             </div>
           </div>
