@@ -1,5 +1,6 @@
 .simple-calendar {
   display: flex;
+  background-color: white;
   flex-direction: column;
   align-items: center;
   border: 0;
@@ -10,10 +11,23 @@
     border: none;
   }
 
+  .calendar-title {
+    display: flex;
+    align-items: center;
+    background: white;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+  }
   .calendar-heading {
     display: flex;
     width: fit-content;
     background: white;
+    justify-content: center;
     align-items: center;
     margin-bottom: 10px;
     height: 80px;
@@ -39,7 +53,6 @@
   }
 
   thead {
-    background-color: #1D7A8C;
     color: white;
     height: 10vh;
     th {
@@ -54,6 +67,13 @@
     }
   }
 
+  thead th {
+    text-align: center;
+    vertical-align: top;
+    color: #686868;
+    text-transform: uppercase;
+    border: none;
+}
   tbody {
     background-color: white;
     tr {
@@ -72,13 +92,65 @@
       }
     }
   }
+.table > :not(:first-child) {
+    border-top: 2px solid currentColor;
+    border: none;
+}
 
-  td  {
+  td {
     text-align: center;
     padding: 6px;
     vertical-align: top;
     width: 14%;
-  }
+    border: none;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+  tbody td > div {
+    border-top: 3px solid;
+    width: 75%;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+  .date-number {
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+}
+
+ .h-100 {
+    height: 100% !important;
+}
+
+ .has-events > div {
+    background: #d9eef2;
+    border-color: #006b81;
+}
+
+  .has-events .date-number {
+    color: #006b81;
+}
+
+  .conflictual > div {
+    background: #ffece8 !important;
+    border-color: #bd0000 !important;
+}
+  .conflictual .date-number {
+    color: #bd0000 !important;
+}
+
+  .iconconflict {
+    height: 30px;
+    transform: rotate(10deg);
+    margin-left: 10px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
 
   .countevents {
     display: flex;
@@ -88,26 +160,42 @@
 
   .today {
     background: white;
-    .date-number {
-      width: fit-content;
-      margin: auto;
-      padding: 4px;
-      border: 2px dashed grey;
-      border-radius: 30%;
-    }
   }
 
-  .prev-month .next-month {
-    background: #BFBFBF;
+  .today .date-number:before {
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 55px;
+    content: "";
+    height: 55px;
+    position: absolute;
+    left: -38%;
+    transform: translate(50%, -50%);
+    top: 44%;
+}
+
+  .prev-month > div {
+    border-color: grey;
+}
+  .next-month > div {
+    border-color: grey;
+}
+
+  .prev-month {
+    background-color: white;
   }
 
-  .has-events {
-    background: #d9eef2;
-  }
+   .next-month {
+    background: white;
+}
 
-  .conflictual {
-    background: #ffe4de;
-  }
+.prev-month .date-number {
+    color: grey;
+}
+
+.next-month .date-number {
+    color: grey;
+}
 
   tr:nth-of-type(2n+1) > td.parent-conflict-bg {
     --bs-table-accent-bg: none;

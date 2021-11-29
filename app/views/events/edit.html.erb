@@ -6,7 +6,7 @@
           <%= simple_form_for [@family, @event] do |f| %>
           <div class="d-flex">
             <div class="row col-10">
-              <%= f.input :family_member, collection: current_user.family.family_members, label: 'Ajoute un membre' %>
+              <%= f.input :family_member, input_html: { value: @event.family_member.first_name }, disabled: true, label: "Membre de la famille" %>
               <%= f.input :title, label: "Titre" %>
               <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker" }, label: "Début" %>
               <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin" %>

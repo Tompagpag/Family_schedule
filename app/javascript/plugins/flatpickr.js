@@ -7,6 +7,7 @@ const initFlatpickr = () => {
     flatpickr('.datepicker', {
       enableTime: true,
       minDate: "2018",
+      time_24hr: true,
       plugins: [
         new minMaxTimePlugin({
           table: {
