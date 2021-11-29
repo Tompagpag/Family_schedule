@@ -22,17 +22,28 @@ class CalendarController < ApplicationController
 
     service.list_events('primary').items.each do |event|
       user = User.find_by(email: event.creator.email)
-
-      Event.create!(
-        title: event.summary,
-        start_at: event.start.date_time,
-        end_at: event.end.date_time,
-        family_member: user.family_member,
-        family: user.family
-      )
+      event_if_exist = Event.find_by(identifier: event.id)
+      if event_if_exist
+        event_if_exist.update(
+          title: event.summary,
+          start_at: event.start.date_time,
+          end_at: event.end.date_time,
+          family_member: user.family_member,
+          family: user.family
+        )
+      else
+        Event.create!(
+          title: event.summary,
+          start_at: event.start.date_time,
+          end_at: event.end.date_time,
+          family_member: user.family_member,
+          family: user.family,
+          identifier: event.id
+        )
+      end
     end
 
-    redirect_to root_path
+    redirect_to family_conflicts_path(current_user.family)
   end
 
   private
