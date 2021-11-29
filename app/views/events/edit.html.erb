@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4 bg-white mt-5">
       <div class="form-wrapper" style="width: 400px; margin: 10px auto;">
-        <h2>Mettre à jour un événement</h2>
+        <h2>Modifier un événement</h2>
           <%= simple_form_for [@family, @event] do |f| %>
           <div class="d-flex">
             <div class="row col-10">
@@ -13,7 +13,7 @@
               <%= f.input :comment, label: 'Commentaire' %>
             </div>
           </div>
-          <%= f.submit 'Mettre à jour', class: "btn btn-flat-full" %>
+          <%= f.submit 'Modifier', class: "btn btn-flat-full" %>
         <% end %>
       </div>
     </div>
