@@ -1,0 +1,5 @@
+meta_product_name: "FamilySchedule"
+meta_title: "FamilySchedule, le calendrier partagé pour vous simplifier la vie"
+meta_description: "La solution digitale pour vous aider à organiser votre vie de famille, résoudre les problèmes de calendrier, réserver un(e) baby-sitter ou contacter vos proches"
+meta_image: "logo_size_meta.png" # should exist in `app/assets/images/`
+twitter_account: "@Lewagonparis"   # required for Twitter Cards
