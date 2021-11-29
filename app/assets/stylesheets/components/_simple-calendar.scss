@@ -80,7 +80,7 @@
     width: 14%;
   }
 
-  .eventattention {
+  .countevents {
     display: flex;
     justify-content: center;
     font-size: 20px;
@@ -93,7 +93,14 @@
   }
 
   .today {
-    background: green;
+    background: white;
+    .date-number {
+      width: fit-content;
+      margin: auto;
+      padding: 4px;
+      border: 2px dashed grey;
+      border-radius: 30%;
+    }
   }
 
   .prev-month .next-month {
@@ -101,15 +108,19 @@
   }
 
   .has-events {
-    background: #facac5;
+    background: #d9eef2;
+  }
+
+  .conflictual {
+    background: #ffe4de;
   }
 
   tr:nth-of-type(2n+1) > td.parent-conflict-bg {
     --bs-table-accent-bg: none;
   }
 
-  .currentDay {
-    border: 1px solid green;
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: none;
   }
 
   .editIcon {
@@ -121,8 +132,7 @@
 
 // .past {}
 // .future {}
-// .day {
-// }
+// .day {}
 // .wday-0 {}
 // .wday-1 {}
 // .wday-2 {}
