@@ -31,6 +31,19 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
+    conflict = @event.conflict
+
+    if conflict
+      conflict.events.each do |event|
+        event.set_conflict
+        p "set conflicts for #{event}"
+      end
+    else
+      @event.set_conflict
+    end
+
+    conflict.destroy if conflict && conflict.reload.events.empty?
+
     redirect_to family_conflicts_path
   end
 

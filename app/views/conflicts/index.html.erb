@@ -29,6 +29,12 @@
 
           <div class="modal-body">
             <div class="card details">
+            <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
+              <div>No Transport !!</div>
+            <% end %>
+            <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
+              <div>No Babysitter !!</div>
+            <% end %>
               <% events.each do |event|%>
                 <div class="user-event <%= event.conflict? %>">
                   <div class="d-flex" data-calendar-target="<%= event.conflict? %>">
@@ -69,7 +75,7 @@
 
           <div class="modal-footer f-flex justify-content-center">
               <% unless @conflicts.find_by(date: date).nil? %>
-                <h6 class="conflict <%= @conflicts.find_by(date: date).conflict_type %>" data-calendar-target="conflict">
+                <h6 class="conflict" data-calendar-target="conflict">
                   <%= link_to "Voir le conflit", family_conflict_path(current_user.family, @conflicts.find_by(date: date)), class:"btn-orange"%>
                 </h6>
               <% end %>

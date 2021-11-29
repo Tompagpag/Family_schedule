@@ -5,16 +5,17 @@ class Event < ApplicationRecord
   validates :title, :start_at, :end_at, presence: true
 
   after_create_commit :set_conflict
-  # of after update event ?
 
   def conflict?
     return "true" if conflict_id.present?
   end
 
   def set_conflict
-    # children_events = family.children_events(start_at.day).where.not(id: id)
-    # parent_events = family.events(start_at.day).where.not(id: id)
-    if child_event? && conflict_events_with_any_parent.any?
+    # reset conflict
+    self.update(conflict: nil)
+
+    # check for conflicts
+    if child_event? && conflict_events_with_all_parent?
       generate_conflict('transport', conflict_events_with_any_parent)
     end
 
@@ -25,10 +26,6 @@ class Event < ApplicationRecord
     elsif conflict_events_with_child.any?
       generate_conflict('transport', conflict_events_with_other_parent + conflict_events_with_child)
     end
-  end
-
-  def offset_conflict
-    # Pour régler un conflit : set un contact_id (= babysitter)
   end
 
   def dad_events
@@ -61,6 +58,11 @@ class Event < ApplicationRecord
     @conflict_events_with_any_parent ||=
       Array(dad_events).select { |event| event.time_range.cover?(self.time_range) } |
         Array(mum_events).select { |event| event.time_range.cover?(self.time_range) }
+  end
+
+  def conflict_events_with_all_parent?
+    Array(dad_events).select { |event| event.time_range.cover?(self.time_range) }.any? &&
+      Array(mum_events).select { |event| event.time_range.cover?(self.time_range) }.any?
   end
 
   def conflict_events_with_child
