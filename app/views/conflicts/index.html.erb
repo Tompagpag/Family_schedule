@@ -9,69 +9,78 @@
 
 
   <%= month_calendar(events: @events, attribute: :start_at) do |date, events| %>
-    <div data-controller="calendar" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100 test">
+
+  <div data-controller="calendar" class="test">
+
+    <div data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100">
       <div class="date-number"><%= date.day %></div>
       <div class="countevents">
-        <div><% if events.present? %><div><%= pluralize(events.count, "event") %><% end %></div>
+        <% if events.present? %><%= pluralize(events.count, "event") %><% end %>
       </div>
+    </div>
 
-      <div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title" id="exampleModalLabel"><%= date.strftime("%d-%B-%y") %></h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="card details">
-                <% events.each do |event|%>
-                  <div class="user-event <%= event.conflict? %>">
-                    <div class="d-flex" data-calendar-target="<%= event.conflict? %>">
-                      <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
-                      <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
-                    </div>
-                    <div class="d-none" data-calendar-target="updateConflict">
+    <div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModal-<%= date %>Label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModal-<%= date %>Label"><%= date.strftime("%d-%B-%y") %></h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="card details">
+              <% events.each do |event|%>
+                <div class="user-event <%= event.conflict? %>">
+                  <div class="d-flex" data-calendar-target="<%= event.conflict? %>">
+                    <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
+                    <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+                  </div>
+                  <div class="d-none" data-calendar-target="updateConflict">
                     <%= link_to edit_family_event_path(current_user.family, event.id) do %>
                       <img class="editIcon" src="https://img.icons8.com/material-outlined/50/000000/edit.png"/>
                     <% end %>
-                    </div>
+                    <%= link_to family_event_path(current_user.family, event.id) do %>
+                      <img class = "editIcon" src="https://img.icons8.com/external-justicon-lineal-justicon/50/000000/external-bin-hotel-essentials-justicon-lineal-justicon.png"/>
+                    <% end %>
                   </div>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="card help-options">
+              <div class="babysitter col-4">
+                <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
+                  <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
+                  <%= "Allô babysitter!" %>
                 <% end %>
               </div>
-              <div class="card help-options">
-                <div class="babysitter col-4">
-                  <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
-                    <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
-                    <%= "Allô babysitter!" %>
-                  <% end %>
-                </div>
-
-                <div class="call-someone col-4 ">
-                  <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
-                    <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
-                    <%= "Appeler un proche" %>
-                  <% end %>
-                </div>
-
-                <div class="update-conflict-event col-4" data-action="click->calendar#display">
-                  <h3><%= image_tag "icons8-modifier-64.png" %></h3>
-                 <a> <%= "Modifier l'événement" %> </a>
-                </div>
+              <div class="call-someone col-4">
+                <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
+                  <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
+                  <%= "Appeler un proche" %>
+                <% end %>
+              </div>
+              <div class="update-conflict-event col-4" data-action="click->calendar#display">
+                <h3><%= image_tag "icons8-modifier-64.png" %></h3>
+                <a><%= "Modifier l'évènement" %></a>
               </div>
             </div>
-            <div class="modal-footer f-flex justify-content-center">
-                <% unless @conflicts.find_by(date: date).nil? %>
-                  <h6 class="conflict <%= @conflicts.find_by(date: date).conflict_type %>" data-calendar-target="conflict">
-                    <%= link_to "Voir le conflit", family_conflict_path(current_user.family, @conflicts.find_by(date: date)), class:"btn-orange"%>
-                  </h6>
-                <% end %>
-            </div>
+          </div>
+
+          <div class="modal-footer f-flex justify-content-center">
+              <% unless @conflicts.find_by(date: date).nil? %>
+                <h6 class="conflict <%= @conflicts.find_by(date: date).conflict_type %>" data-calendar-target="conflict">
+                  <%= link_to "Voir le conflit", family_conflict_path(current_user.family, @conflicts.find_by(date: date)), class:"btn-orange"%>
+                </h6>
+              <% end %>
           </div>
         </div>
       </div>
-
-
     </div>
+
+  </div>
+
   <% end %>
 
 </div>

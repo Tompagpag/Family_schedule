@@ -86,12 +86,6 @@
     font-size: 20px;
   }
 
-  .attention {
-    height: 30px;
-    transform: rotate(10deg);
-    margin-left: 10px;
-  }
-
   .today {
     background: white;
     .date-number {
@@ -126,6 +120,11 @@
   .editIcon {
     height: 1.2rem;
     margin-left: 10px;
+  }
+
+  .iconconflict {
+    height: 22px;
+    transform: rotate(10deg);
   }
 
 }

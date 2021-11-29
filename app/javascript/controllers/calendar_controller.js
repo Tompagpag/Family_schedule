@@ -8,21 +8,21 @@ export default class extends Controller {
 
     this.trueTargets.forEach((target) => {
       target.insertAdjacentHTML('beforeend', '<img class="iconcareful" src="https://img.icons8.com/windows/50/fa314a/exclamation-mark.png"/>')
-    })
+    });
 
     this.conflictTargets.forEach((conflict) => {
-      if (conflict.closest('.test').getElementsByClassName('fa-car').length === 0) {
-        conflict.closest('.test .countevents').insertAdjacentHTML('beforeend', '<img class="attention" src="https://img.icons8.com/material-outlined/50/fa314a/box-important.png"/>');
-        conflict.closest('.day').classList.add('conflictual');
+      conflict.closest('.day').classList.add('conflictual');
+      if (conflict.closest('.test').getElementsByClassName('iconconflict').length === 0) {
+        console.log(conflict.closest('.test').querySelector('.countevents'));
+        conflict.closest('.test').querySelector('.countevents').insertAdjacentHTML('beforeend', '<img class="iconconflict" src="https://img.icons8.com/windows/50/fa314a/exclamation-mark.png"/>');
       }
     });
   };
 
-  display(event) {
-    event.preventDefault();
+  display() {
     this.updateConflictTargets.forEach((div) => {
       if (div.closest('.user-event').classList.contains("true")) {
-        div.classList.remove("d-none")
+        div.classList.toggle("d-none")
       }
     })
   };
