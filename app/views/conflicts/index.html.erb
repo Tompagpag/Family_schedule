@@ -27,13 +27,13 @@
           </div>
 
           <div class="modal-body">
-            <div class="card details">
             <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
               <div>No Transport !!</div>
             <% end %>
             <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
               <div>No Babysitter !!</div>
             <% end %>
+            <div class="card details">
               <% events.each do |event|%>
                 <div class="user-event <%= event.conflict? %>">
                   <div class="d-flex" data-calendar-target="<%= event.conflict? %>">
@@ -52,33 +52,49 @@
               <% end %>
             </div>
 
-            <div class="card help-options">
-              <div class="babysitter col-4">
-                <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
-                  <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
-                  <%= "Allô babysitter!" %>
+            <% if @conflicts.where(date: date).present?  %>
+              <div class="card help-options">
+                <div class="help-items" data-action="click->calendar#display">
+                  <h3><%= image_tag "icons8-modifier-64.png" %></h3>
+                  <a><%= "Modifier l'événement" %></a>
+                </div>
+                <div class="help-items">
+                  <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
+                    <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
+                    <%= "Appeler un proche" %>
+                  <% end %>
+                </div>
+                <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
+                  <div class="help-items">
+                    <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
+                      <%= "Allô babysitter!" %>
+                    <% end %>
+                  </div>
+                <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
+                  <div class="help-items">
+                    <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
+                      <%= "Réserve un train" %>
+                    <% end %>
+                  </div>
+                  <div class="help-items">
+                    <%= link_to "https://www.rentalcars.com/", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
+                      <%= "Réserve une voiture" %>
+                    <% end %>
+                  </div>
                 <% end %>
+                </div>
               </div>
-              <div class="call-someone col-4">
-                <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
-                  <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
-                  <%= "Appeler un proche" %>
-                <% end %>
-              </div>
-              <div class="update-conflict-event col-4" data-action="click->calendar#display">
-                <h3><%= image_tag "icons8-modifier-64.png" %></h3>
-                <a><%= "Modifier l'événement" %></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal-footer f-flex justify-content-center">
-              <% unless @conflicts.find_by(date: date).nil? %>
+              <div class="modal-footer f-flex justify-content-center">
                 <h6 class="conflict" data-calendar-target="conflict">
                   <%= link_to "Voir le conflit", family_conflict_path(current_user.family, @conflicts.find_by(date: date)), class:"btn-orange"%>
                 </h6>
-              <% end %>
+              </div>
+            <% end %>
           </div>
+
         </div>
       </div>
     </div>
