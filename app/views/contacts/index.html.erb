@@ -15,7 +15,7 @@
             <th scope="col" id="n1">Nom</th>
             <th scope="col">Email</th>
             <th scope="col">Téléphone</th>
-            <th scope="col">Commentaire</th>
+            <th scope="col">Type de connaissance</th>
           </tr>
         </thead>
 
@@ -23,7 +23,7 @@
           <% @contacts.each_with_index do |contact, index| %>
             <tr class="">
               <th scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></th>
-              <th scope="row"><em><%= contact.email %></em></th>
+              <th scope="row"><a href="mailto:<%= contact.email %>"><%= contact.email %></a></th>
               <th scope="row"><%= contact.phone_number %></th>
               <th scope="row"><%= contact.comment %></th>
             </tr>

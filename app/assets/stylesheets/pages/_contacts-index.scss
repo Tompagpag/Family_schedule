@@ -18,7 +18,7 @@
 
   tbody tr {
     padding-top: 10px;
-    &:nth-of-type(2n+1) {
+    &:hover {
     background: #F2F2F2;
     }
   }
@@ -36,5 +36,12 @@
   .header {
     font-size: 26px;
     font-weight: bold;
+  }
+
+  a {
+    color: black;
+    &:hover {
+      color: #1D7A8C;
+    }
   }
 }
