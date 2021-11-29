@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_092108) do
+ActiveRecord::Schema.define(version: 2021_11_29_164128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 2021_11_29_092108) do
     t.bigint "family_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "contact_id"
-    t.index ["contact_id"], name: "index_conflicts_on_contact_id"
     t.index ["family_id"], name: "index_conflicts_on_family_id"
   end
 
@@ -42,13 +40,13 @@ ActiveRecord::Schema.define(version: 2021_11_29_092108) do
     t.string "title"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.text "comment"
     t.bigint "conflict_id"
     t.bigint "family_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "family_member_id"
     t.string "identifier"
+    t.string "contact"
     t.index ["conflict_id"], name: "index_events_on_conflict_id"
     t.index ["family_id"], name: "index_events_on_family_id"
     t.index ["family_member_id"], name: "index_events_on_family_member_id"
@@ -85,7 +83,6 @@ ActiveRecord::Schema.define(version: 2021_11_29_092108) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "conflicts", "contacts"
   add_foreign_key "conflicts", "families"
   add_foreign_key "contacts", "families"
   add_foreign_key "events", "conflicts"

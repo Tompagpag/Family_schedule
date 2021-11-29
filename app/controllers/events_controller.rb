@@ -34,13 +34,23 @@ class EventsController < ApplicationController
     conflict = @event.conflict
 
     if conflict
-      conflict.events.each do |event|
-        event.set_conflict
+
+      if @event.contact.present?
+        conflict.events.each do |event|
+          event.update(conflict: nil)
+        end
+        conflict.destroy
+      else
+        conflict.events.each do |event|
+          event.set_conflict
+        end
+        conflict.destroy if conflict.reload.events.empty?
       end
+
     else
       @event.set_conflict
     end
-    conflict.destroy if conflict && conflict.reload.events.empty?
+
     redirect_to family_conflicts_path
   end
 
@@ -60,6 +70,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start_at, :end_at, :comment)
+    params.require(:event).permit(:title, :start_at, :end_at, :contact)
   end
 end
