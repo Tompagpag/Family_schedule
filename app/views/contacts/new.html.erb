@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4 bg-white mt-5">
-    <h2>Ajouter un contact</h2>
+    <h2>Ajouter une connaissance</h2>
       <%= simple_form_for [@family, @contact] do |f| %>
         <div class="form-inputs">
             <%= f.input :first_name, label: 'Prénom' %>
-            <%= f.input :last_name, label: 'Nom de famille' %>
+            <%= f.input :last_name, label: 'Nom' %>
             <%= f.input :email, label: 'Email' %>
             <%= f.input :phone_number, label: 'Numéro de téléphone' %>
-            <%= f.input :comment, label: 'Commentaire' %>
+            <%= f.input :comment, label: 'Type de connaissance ' %>
         </div>
         <div class="form-actions">
           <%= f.submit 'Ajouter', class:'btn btn-flat-full' %>
