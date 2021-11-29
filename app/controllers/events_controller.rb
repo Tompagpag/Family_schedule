@@ -36,20 +36,24 @@ class EventsController < ApplicationController
     if conflict
       conflict.events.each do |event|
         event.set_conflict
-        p "set conflicts for #{event}"
       end
     else
       @event.set_conflict
     end
-
     conflict.destroy if conflict && conflict.reload.events.empty?
-
     redirect_to family_conflicts_path
   end
 
   def destroy
     @event = Event.find(params[:id])
+    conflict = @event.conflict
     @event.delete
+    if conflict
+      conflict.events.each do |event|
+        event.set_conflict
+      end
+    end
+    conflict.destroy if conflict && conflict.reload.events.empty?
     redirect_to family_conflicts_path
   end
 
