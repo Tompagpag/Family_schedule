@@ -13,8 +13,8 @@ export default class extends Controller {
     this.conflictTargets.forEach((conflict) => {
       conflict.closest('.day').classList.add('conflictual');
       if (conflict.closest('.test').getElementsByClassName('iconconflict').length === 0) {
-        console.log(conflict.closest('.test').getElementsByClassName('countevents'));
-        conflict.closest('.test').getElementsByClassName('countevents').insertAdjacentHTML('beforeend', '<img class="iconconflict" src="https://img.icons8.com/windows/50/fa314a/exclamation-mark.png"/>');
+        console.log(conflict.closest('.test').querySelector('.countevents'));
+        conflict.closest('.test').querySelector('.countevents').insertAdjacentHTML('beforeend', '<img class="iconconflict" src="https://img.icons8.com/windows/50/fa314a/exclamation-mark.png"/>');
       }
     });
   };

@@ -22,10 +22,12 @@
     <div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModal-<%= date %>Label" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
+
           <div class="modal-header">
             <h3 class="modal-title" id="exampleModal-<%= date %>Label"><%= date.strftime("%d-%B-%y") %></h3>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
           <div class="modal-body">
             <div class="card details">
               <% events.each do |event|%>
@@ -45,13 +47,13 @@
                 </div>
               <% end %>
             </div>
+
             <div class="card help-options">
               <div class="babysitter col-4">
                 <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
                   <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
                   <%= "Allô babysitter!" %>
                 <% end %>
-
               </div>
               <div class="call-someone col-4">
                 <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
@@ -59,13 +61,13 @@
                   <%= "Appeler un proche" %>
                 <% end %>
               </div>
-
               <div class="update-conflict-event col-4" data-action="click->calendar#display">
                 <h3><%= image_tag "icons8-modifier-64.png" %></h3>
                 <a><%= "Modifier l'évènement" %></a>
               </div>
             </div>
           </div>
+
           <div class="modal-footer f-flex justify-content-center">
               <% unless @conflicts.find_by(date: date).nil? %>
                 <h6 class="conflict <%= @conflicts.find_by(date: date).conflict_type %>" data-calendar-target="conflict">
