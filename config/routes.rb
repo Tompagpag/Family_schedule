@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/design', to: 'pages#design'
 
   resources :families, only: [:show, :new, :create] do
-    resources :events, only: [:new, :create]
+    resources :events, only: [:new, :create, :edit, :update]
     resources :family_members, only: [:create]
     resources :conflicts, only: [:index, :create, :show, :update]
     resources :contacts, only: [:index, :new, :create, :destroy]
