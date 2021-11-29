@@ -35,6 +35,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    @event.delete
+    redirect_to family_conflicts_path
   end
 
   private
