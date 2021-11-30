@@ -56,4 +56,12 @@
       color: #1D7A8C;
     }
   }
+
+  .hover-edit {
+    opacity: 0;
+  }
+
+  .tr:hover .hover-edit{
+    opacity: 1;
+  }
 }

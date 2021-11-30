@@ -16,16 +16,22 @@
             <th scope="col">Email</th>
             <th scope="col">Téléphone</th>
             <th scope="col">Type de connaissance</th>
+            <th scope="col"></th>
           </tr>
         </thead>
 
         <tbody>
           <% @contacts.each_with_index do |contact, index| %>
-            <tr class="">
+            <tr class="tr">
               <td scope="row"><%= "#{contact.first_name} #{contact.last_name}" %></td>
               <td scope="row"><a href="mailto:<%= contact.email %>"><%= contact.email %></a></td>
               <td scope="row"><%= contact.phone_number %></td>
               <td scope="row"><%= contact.comment %></td>
+              <td scope="row">
+                <%= link_to edit_family_contact_path(@family, contact) do %>
+                  <h3><%= image_tag "icons8-modifier-64.png", width: "25px", class: "hover-edit"%></h3>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
