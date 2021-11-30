@@ -35,6 +35,9 @@
                   <div class="events-list" data-calendar-target="<%= event.conflict? %>">
                     <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
                     <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+                    <% if event.contact.present? %>
+                      <h3> (-> Contact: <%= event.contact %>)</h3>
+                    <% end %>
                   </div>
                   <div class="d-none" data-calendar-target="updateConflict">
                     <%= link_to edit_family_event_path(current_user.family, event.id) do %>
@@ -52,12 +55,12 @@
               <div class="help-options">
                 <div class="help-items" data-action="click->calendar#display">
                   <h3><%= image_tag "icons8-modifier-64.png" %></h3>
-                  <a><%= "Modifier l'événement" %></a>
+                  <a><%= "Modifie l'événement" %></a>
                 </div>
                 <div class="help-items">
                   <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
                     <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
-                    <%= "Appeler un proche" %>
+                    <%= "Appelle un proche" %>
                   <% end %>
                 </div>
                 <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
@@ -69,15 +72,15 @@
                   </div>
                 <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
                   <div class="help-items">
-                    <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
-                      <h3><%= image_tag "icons8-train-64.png" %></h3>
-                      <%= "Réserve un train" %>
+                    <%= link_to "https://www.uber.com/fr", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-taxi-64.png" %></h3>
+                      <%= "Réserve un taxi" %>
                     <% end %>
                   </div>
                   <div class="help-items">
-                    <%= link_to "https://www.rentalcars.com/", target: '_blank' do %>
-                      <h3><%= image_tag "icons8-voiture-64.png" %></h3>
-                      <%= "Réserve une voiture" %>
+                    <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-train-64.png" %></h3>
+                      <%= "Achète un billet" %>
                     <% end %>
                   </div>
                 <% end %>
