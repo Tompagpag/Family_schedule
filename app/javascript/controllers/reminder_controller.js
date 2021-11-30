@@ -5,10 +5,9 @@ export default class extends Controller {
   static targets = ["reminderDetails", "test"];
 
   connect() {
-    console.log(this.testTarget.classList.value)
-    // if (this.testTarget["value"] === 'true') {
-    //   this.reminderDetailsTarget.classList.remove("d-none");
-    // }
+    if (this.testTarget.classList.value.includes("is-valid")) {
+      this.reminderDetailsTarget.classList.remove("d-none");
+    }
   };
 
   addReminder() {
