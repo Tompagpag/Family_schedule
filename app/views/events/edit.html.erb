@@ -10,7 +10,11 @@
               <%= f.input :title, label: "Titre" %>
               <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker" }, label: "Début" %>
               <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin" %>
-              <%= f.input :add_reminder?, as: :boolean, label: 'Reminder ?' %>
+              <%= f.input :add_reminder?, as: :boolean, label: 'Ajouter un rappel ?', input_html: { "data-action" => "change->reminder#addReminder" }  %>
+              <div class="d-none" data-reminder-target="reminderDetails">
+                <%= f.input :reminder_date, as: :string, required: true, input_html: {class: "datepicker" } %>
+                <%= f.input :reminder_comment, label: "Commentaire" %>
+              </div>
               <%= f.input :contact, label: 'Contact ?' %>
             </div>
           </div>

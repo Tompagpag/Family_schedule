@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   belongs_to :conflict, optional: true
   belongs_to :family
   belongs_to :family_member
-  has_many :reminders
+
   validates :title, :start_at, :end_at, presence: true
 
   after_create_commit :set_conflict
