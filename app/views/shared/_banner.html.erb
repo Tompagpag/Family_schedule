@@ -5,7 +5,6 @@
     <p>Tout le calendrier de la famille au même endroit!</p>
       <% if user_signed_in? %>
         <% if current_user.family_member? %>
-          <%= link_to, family_conflicts_path(current_user.family) do %>
           <%= link_to "Mon Family Schedule", family_conflicts_path(current_user.family), class: "button-52" %>
         <% else %>
           <%= link_to "Crée ta famille", new_family_path, class: "button-52" %>

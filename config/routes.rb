@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/design', to: 'pages#design'
 
-  resources :families, only: [:show, :new, :create] do
+  resources :families, only: [:new, :create] do
     resources :events, only: [:new, :create, :edit, :update, :destroy]
     resources :family_members, only: [:create]
     resources :conflicts, only: [:index, :create, :update]
