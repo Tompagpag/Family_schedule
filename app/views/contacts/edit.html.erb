@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4 bg-white mt-5">
+      <div class="form-wrapper" style="width: 400px; margin: 10px auto;">
+        <h2>Modifier une contact</h2>
+          <%= simple_form_for [@family, @contact] do |f| %>
+          <div class="d-flex">
+            <div class="row col-10">
+              <%= f.input :first_name %>
+              <%= f.input :last_name %>
+              <%= f.input :email %>
+              <%= f.input :phone_number %>
+              <%= f.input :comment %>
+            </div>
+          </div>
+          <%= f.submit 'Modifier', class: "btn btn-flat-full" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
