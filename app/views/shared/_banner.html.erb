@@ -5,9 +5,11 @@
     <p>Tout le calendrier de la famille au même endroit!</p>
       <% if user_signed_in? %>
         <% if current_user.family_member? %>
-          <%= link_to "Mon Family Schedule", family_conflicts_path(current_user.family), class: "button-52-peach" %>
+          <%= link_to, family_conflicts_path(current_user.family) do %>
+        <button class ="button-52-peach">Mon Family Schedule</button>
+        <% end %>
         <% else %>
-          <%= link_to "Créée ta famille", new_family_path, class: "button-52-peach" %>
+          <%= link_to "Crée ta famille", new_family_path, class: "button-52-peach" %>
         <% end %>
       <% end %>
     </div>
