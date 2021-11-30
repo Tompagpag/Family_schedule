@@ -23,6 +23,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if (action_name == "index" && controller_name == "conflicts")%>
+      <meta name="turbolinks-visit-control" content="reload">
+    <% end %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
