@@ -26,6 +26,13 @@ class ContactsController < ApplicationController
   end
 
   def update
+    @family = Family.find(params[:family_id])
+    @contact = Contact.find(params[:id])
+    if @contact.update(contact_params)
+      redirect_to family_contacts_path(@family)
+    else
+      render :new
+    end
   end
 
   def destroy
