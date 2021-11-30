@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_112107) do
+ActiveRecord::Schema.define(version: 2021_11_30_115805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_112107) do
     t.bigint "family_member_id"
     t.string "identifier"
     t.string "contact"
-    t.boolean "add_reminder?"
+    t.boolean "add_reminder"
     t.datetime "reminder_date"
     t.text "reminder_comment"
     t.index ["conflict_id"], name: "index_events_on_conflict_id"

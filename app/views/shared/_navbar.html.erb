@@ -27,9 +27,17 @@
             <li class="nav-item">
               <%= link_to "Importer depuis Gmail", calendar_redirect_path, class: "nav-link" %>
             </li>
+            <li class="nav-item reminder-icon">
+              <%= image_tag "https://img.icons8.com/ios-filled/50/000000/appointment-reminders--v2.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
             <li class="nav-item dropdown">
               <%= image_tag "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-1024.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>

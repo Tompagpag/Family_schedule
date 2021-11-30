@@ -70,6 +70,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start_at, :end_at, :contact, :add_reminder?, :reminder_date, :reminder_comment)
+    params.require(:event).permit(:title, :start_at, :end_at, :contact, :add_reminder, :reminder_date, :reminder_comment)
   end
 end
