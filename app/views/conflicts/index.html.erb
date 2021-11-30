@@ -1,14 +1,9 @@
 <div class="container" >
  <div id="all" style="position: relative">
-    <div class="calendar-titre">
-      <%= link_to new_family_event_path(current_user.family) do %>
-    <i class="far fa-calendar-plus iconcolor"></i> Ajouter un événement
-      <% end %>
-    </div>
     <%= month_calendar(events: @events, attribute: :start_at) do |date, events| %>
   </div>
 
-  <div data-controller="calendar" class="test">
+  <div data-controller="calendar" class="la-modale">
 
     <div data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100">
       <div class="date-number"><%= date.day %></div>
@@ -27,16 +22,17 @@
           </div>
 
           <div class="modal-body">
+
             <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
-              <div>No Transport !!</div>
+              <div class="warning">No Transport !!</div>
             <% end %>
             <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-              <div>No Babysitter !!</div>
+              <div class="warning">No Babysitter !!</div>
             <% end %>
-            <div class="card details">
+            <div class="details">
               <% events.each do |event|%>
                 <div class="user-event <%= event.conflict? %>">
-                  <div class="d-flex" data-calendar-target="<%= event.conflict? %>">
+                  <div class="events-list" data-calendar-target="<%= event.conflict? %>">
                     <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
                     <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
                   </div>
@@ -52,8 +48,8 @@
               <% end %>
             </div>
 
-            <% if @conflicts.where(date: date).present?  %>
-              <div class="card help-options">
+            <% if @conflicts.where(date: date).present? %>
+              <div class="help-options">
                 <div class="help-items" data-action="click->calendar#display">
                   <h3><%= image_tag "icons8-modifier-64.png" %></h3>
                   <a><%= "Modifier l'événement" %></a>
@@ -74,23 +70,18 @@
                 <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
                   <div class="help-items">
                     <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
-                      <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
+                      <h3><%= image_tag "icons8-train-64.png" %></h3>
                       <%= "Réserve un train" %>
                     <% end %>
                   </div>
                   <div class="help-items">
                     <%= link_to "https://www.rentalcars.com/", target: '_blank' do %>
-                      <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
+                      <h3><%= image_tag "icons8-voiture-64.png" %></h3>
                       <%= "Réserve une voiture" %>
                     <% end %>
                   </div>
                 <% end %>
                 </div>
-              </div>
-              <div class="modal-footer f-flex justify-content-center">
-                <h6 class="conflict" data-calendar-target="conflict">
-                  <%= link_to "Voir le conflit", family_conflict_path(current_user.family, @conflicts.find_by(date: date)), class:"btn-orange"%>
-                </h6>
               </div>
             <% end %>
           </div>
