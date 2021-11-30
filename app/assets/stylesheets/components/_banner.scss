@@ -1,11 +1,11 @@
 body {
-  background-color: white;;
+  background-color: white;
 }
 .banner {
   background-image: url('calendarpic.jpg'), linear-gradient(rgba(252, 250, 250, 0.9),rgba(245, 242, 242, 0.9));
   background-size: cover;
   background-position: center top;
-  height: 80vh;
+  height: 100vh;
   font-size: 30px;
   position: relative;
 
@@ -17,14 +17,10 @@ body {
     left: 0;
     background-color: rgba($color: #fff, $alpha: 0.6);
   }
+
   .container {
     z-index: 2;
   }
-}
-
-
-body {
-  background: white;
 }
 
 h1 {
@@ -35,8 +31,4 @@ h1 {
 
 .banner p {
 font-size: 40px;
-}
-
-.btn-orange {
-  color: #1D7A8C;
 }
