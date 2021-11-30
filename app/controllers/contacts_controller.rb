@@ -20,6 +20,14 @@ class ContactsController < ApplicationController
     end
   end
 
+  def edit
+    @family = Family.find(params[:family_id])
+    @contact = Contact.find(params[:id])
+  end
+
+  def update
+  end
+
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
