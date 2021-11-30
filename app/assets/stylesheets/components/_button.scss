@@ -69,71 +69,80 @@
   }
 }
 
-.btn-orange-reverse {
-  font-size: 30px;
-  font-family: 'Overpass', sans-serif;
-  margin-left : 8px;
-  padding: 10px;
-  background-color: none;
-  border: 2px solid #F08B75;
-  color: #F08B75;
-  border-radius : 30px;
-  &:hover {
-    color: white;
-    margin-left : 8px;
-    color: #f1b4a7;
-  }
-}
-
-
-.button-51 {
-  background-color: transparent;
-  border: 1px solid black;
-  box-sizing: border-box;
-  color: black;
-  font-family: 'Overpass',sans-serif;
+.button-52-peach {
   font-size: 24px;
-  font-weight: 700;
-  line-height: 24px;
-  padding: 16px 23px;
+  font-family: 'Bebas neue';
+  color: black !important;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
   position: relative;
-  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
 }
 
-.button-51:hover,
-.button-51:active {
-  outline: 0;
-}
-
-.button-51:hover {
-  background-color: transparent;
-  color: black;
-  cursor: pointer;
-}
-
-.button-51:before {
-  background-color: #ffece8;
-  color: black;
+.button-52-peach:after {
   content: "";
-  height: calc(100% + 3px);
-  position: absolute;
-  right: -7px;
-  top: -9px;
-  transition: background-color 300ms ease-in;
+  background-color: #F08B75;
   width: 100%;
   z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
 }
 
-.button-51:hover:before {
-  background-color: #F08B75;
-  color: black;
+.button-52-peach:hover:after {
+  top: 0px;
+  left: 0px;
 }
 
 @media (min-width: 768px) {
-  .button-51 {
-    padding: 16px 32px;
+  .button-52-peach {
+    padding: 13px 50px 13px;
+  }
+}
+
+.button-52 {
+  font-size: 24px;
+  font-family: 'Bebas neue';
+  color: black !important;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-52:after {
+  content: "";
+  background-color: #F08B75;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
   }
 }
