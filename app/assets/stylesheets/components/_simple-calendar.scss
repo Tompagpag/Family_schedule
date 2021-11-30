@@ -16,9 +16,9 @@
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    padding: 10px 0;
+    padding: 0px;
     font-size: 40px;
-    margin: 15px;
+    margin: 0px 15px;
     span {
       margin: 0px 20px;
     }
@@ -42,7 +42,7 @@
   }
 
   thead {
-    height: 10vh;
+    height: 8vh;
     th {
       text-align: center;
       vertical-align: top;
@@ -92,7 +92,7 @@
       border-top: 3px solid;
       width: 75%;
       margin: auto;
-      padding: 10px 16px;
+      padding: 4px 16px;
     }
   }
 
@@ -148,13 +148,13 @@
      .date-number {
       position: relative;
       &:before {
-        height: 48px;
-        width: 48px;
+        height: 42px;
+        width: 42px;
         border-radius: 50%;
         content: "";
         position: absolute;
-        left: -30%;
-        top: 44%;
+        left: -25%;
+        top: 47%;
         transform: translate(50%, -50%);
         background: #d9eef2;
         z-index: -1;
