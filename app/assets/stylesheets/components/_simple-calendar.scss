@@ -114,18 +114,26 @@
   }
 
  .has-events > div {
+    cursor: pointer;
     background: #d9eef2;
     border-color: #006b81;
-  }
+    &:hover {
+      border-color: #d9eef2;
+    }
+}
 
   .has-events .date-number {
     color: #006b81;
   }
 
   .conflictual > div {
+    cursor: pointer;
     background: #ffece8 !important;
     border-color: #bd0000 !important;
-  }
+    &:hover {
+      border-color: #ffece8 !important;
+    }
+}
   .conflictual .date-number {
     color: #bd0000 !important;
   }
