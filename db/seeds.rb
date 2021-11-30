@@ -13,13 +13,13 @@ FamilyMember.destroy_all
 Contact.destroy_all
 
 password = "123456"
-john = User.create(email: "johndoe.familyschedule@gmail.com", password: password)
-jane = User.create(email: "janedoe.familyschedule@gmail.com", password: password)
+john = User.create(email: "desrosiersalex7@gmail.com", password: password)
+jane = User.create(email: "juliettedesrosiers9@gmail.com", password: password)
 
 family = Family.create!(last_name: "Ma Family")
 
-FamilyMember.create!(first_name: "Alex", last_name: "Desrosiers", admin: true, family: family, user: john, email: "johndoe.familyschedule@gmail.com")
-FamilyMember.create!(first_name: "Juliette", last_name: "Desrosiers", admin: true, family: family, user: jane, email: "janedoe.familyschedule@gmail.com")
+FamilyMember.create!(first_name: "Alex", last_name: "Desrosiers", admin: true, family: family, user: john, email: "desrosiersalex7@gmail.com")
+FamilyMember.create!(first_name: "Juliette", last_name: "Desrosiers", admin: true, family: family, user: jane, email: "juliettedesrosiers9@gmail.com")
 jules = FamilyMember.create!(first_name: "Jules", last_name: "Desrosiers", admin: false, family: family)
 lola = FamilyMember.create!(first_name: "Lola", last_name: "Desrosiers", admin: false, family: family)
 
