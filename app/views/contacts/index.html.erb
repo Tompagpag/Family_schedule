@@ -19,6 +19,7 @@
             <th scope="col">Téléphone</th>
             <th scope="col">Type de connaissance</th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
 
@@ -32,6 +33,10 @@
               <td scope="row">
                 <%= link_to edit_family_contact_path(@family, contact) do %>
                   <h3><%= image_tag "icons8-modifier-64.png", width: "25px", class: "hover-edit"%></h3>
+                <% end %>
+              <td scope="row">
+                <%= link_to family_contact_path(@family, contact), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <h3><%= image_tag "icons8-effacer-64.png", width: "25px", class: "hover-edit"%></h3>
                 <% end %>
               </td>
             </tr>
