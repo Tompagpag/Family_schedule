@@ -8,7 +8,7 @@ class FamiliesController < ApplicationController
     FamilyMember.create(admin: true, user: current_user, family: @family)
 
     if @family.save
-      redirect_to family_path(@family)
+      redirect_to root_path
     else
       render :new
     end
