@@ -15,8 +15,10 @@
 }
 
 .la-modale .details .user-event {
-  padding: 2vh;
-  margin-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh;
   .events-list {
     display: flex;
     align-items: center;
@@ -26,13 +28,13 @@
 .la-modale .details h2 {
   font-size: 1.5rem;
   color: #ED8074;
-  margin: 0px 10px;
+  margin: 0px 5px;
 }
 
 .la-modale .details h3 {
   font-family: 'Overpass', sans-serif;
   font-size: 1.2rem;
-  margin-bottom: 0;
+  margin: 0px 5px;
 }
 
 .la-modale .help-options {
