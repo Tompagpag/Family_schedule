@@ -1,3 +1,28 @@
+.contact-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 10px 0;
+  margin: 20px 15px;
+  h2{
+  font-size: 40px;
+  }
+}
+
+.add_contact a {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 20px;
+  margin: 0px 20px;
+}
+
+.add_contact p {
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
 .contact-table {
   overflow: hidden;
   background: white;
@@ -64,4 +89,20 @@
   .tr:hover .hover-edit{
     opacity: 1;
   }
+
+  .iconcolor {
+    font-size: 30px;
+    color: black;
+    font-family: 'Overpass', sans-serif;
+    opacity: 1;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .iconcolor p {
+    font-family: 'Overpass', sans-serif;
+  }
+
+
 }

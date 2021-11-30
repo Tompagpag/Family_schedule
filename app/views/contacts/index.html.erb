@@ -1,11 +1,13 @@
 <div class='container-fluid p-0 pt-1'>
   <div class="container">
 
-    <div class="calendar-title">
-      <h2>Mes proches</h2>
-      <%= link_to new_family_contact_path(@family) do %>
-        <i class="far fa-plus-square iconcolor"></i>
-      <% end %>
+    <div class="contact-title">
+      <h2>Mes contacts</h2>
+      <div class="add_contact">
+        <%= link_to new_family_contact_path(@family) do %>
+          <i class="far fa-plus-square iconcolor"></i><p>Ajouter un contact</p>
+        <% end %>
+      </div>
     </div>
 
     <div class="contact-table">
