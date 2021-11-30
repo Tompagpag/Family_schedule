@@ -3,13 +3,12 @@
   background: white;
   font-size: 22px;
   border: none;
+  border-radius: none !important;
   text-align: center;
 
   // #n1 {
   //   padding-left: 29px;
   // }
-
-
 
   tbody tr th {
     padding-top: 15px;
@@ -22,7 +21,7 @@
   tbody tr {
     padding-top: 10px;
     &:hover {
-    border-bottom: 2px solid black;
+    background: #d9eef2;
     }
   }
 
@@ -54,6 +53,7 @@
     color: black;
     &:hover {
       color: #1D7A8C;
+      font-weight: bold;
     }
   }
 
