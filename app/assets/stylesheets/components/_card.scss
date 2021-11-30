@@ -12,6 +12,7 @@
   font-weight: bold;
   background: #ffece8;
   font-family: 'Amatic SC', cursive;
+  margin-bottom: 10px;
 }
 
 .la-modale .details .user-event {
@@ -44,16 +45,25 @@
   margin-bottom: 5vh;
   margin-top: 5vh;
   justify-content: space-around;
-  img {
-    height: 40px;
-  }
-  a {
-    color: grey;
-    font-size: 1.10rem;
-      &:hover {
+  .help-items {
+    img {
+      height: 40px;
+      opacity: 0.6;
+    }
+    a {
+      color: grey;
+      font-size: 1.10rem;
+    }
+    &:hover {
+      img {
+        opacity: 1;
+        height: 44px;
+      }
+      a {
         border-bottom: 2px solid $light-gray;
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
       }
+    }
   }
 }
 
@@ -61,3 +71,8 @@
   height: 22px;
   transform: rotate(10deg);
 }
+
+.editIcon {
+    height: 1.2rem;
+    margin-left: 10px;
+  }
