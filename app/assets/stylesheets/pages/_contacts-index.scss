@@ -9,6 +9,8 @@
   //   padding-left: 29px;
   // }
 
+
+
   tbody tr th {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -20,7 +22,7 @@
   tbody tr {
     padding-top: 10px;
     &:hover {
-    background: #F2F2F2;
+    border-bottom: 2px solid black;
     }
   }
 
