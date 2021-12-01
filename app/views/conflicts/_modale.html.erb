@@ -13,85 +13,94 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <p class="modal-title" id="exampleModal-<%= date %>Label"><%= date.strftime("%A %-d %B") %></p>
+          <p class="modal-title" id="exampleModal-<%= date %>Label"><%= @days[date.wday] %> <%= date.strftime("%-d") %> <%= @months[date.month.to_i] %> </p>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
 
-          <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
-            <h3 class="warning">No Transport !!</h3>
-          <% elsif @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-            <h3 class="warning">No Babysitter !!</h3>
-          <% end %>
-
-          <% events.each do |event|%>
-            <div class="user-event <%= event.conflict? %>">
-              <div class="first-line-block">
-                <div class="events-list" data-calendar-target="<%= event.conflict? %>">
-                  <div class="event-details">
-                    <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
-                    <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+          <div class="left-part">
+            <h3>Mes événements</h3>
+            <div class="all-events">
+              <% events.each do |event|%>
+                <div class="user-event <%= event.conflict? %>">
+                  <div class="first-line-block">
+                    <div class="events-list" data-calendar-target="<%= event.conflict? %>">
+                      <div class="event-details">
+                        <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
+                        <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+                      </div>
+                    </div>
+                    <div class="d-none editupdate" data-calendar-target="updateConflict">
+                      <%= link_to edit_family_event_path(current_user.family, event.id) do %>
+                        <img class="editIcon" src="https://img.icons8.com/material-outlined/50/000000/edit.png"/>
+                      <% end %>
+                      <%= link_to family_event_path(current_user.family, event.id), method: :delete do %>
+                        <img class="editIcon" src="https://img.icons8.com/external-justicon-lineal-justicon/50/000000/external-bin-hotel-essentials-justicon-lineal-justicon.png"/>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="event-options">
+                    <% if event.add_reminder == true %>
+                      <div class="mr-1"><%= image_tag "icons8-alarme-64.png", class: "reminder-calendar" %><%= event.reminder_comment %></div>
+                    <% end %>
+                    <% if event.contact.present? %>
+                      <div class="mr-1"><%= image_tag 'icons8-téléphone-qui-sonne-64 (1)', class: "reminder-calendar" %><%= event.contact %></div>
+                    <% end %>
                   </div>
                 </div>
-                <div class="d-none editupdate" data-calendar-target="updateConflict">
-                  <%= link_to edit_family_event_path(current_user.family, event.id) do %>
-                    <img class="editIcon" src="https://img.icons8.com/material-outlined/50/000000/edit.png"/>
-                  <% end %>
-                  <%= link_to family_event_path(current_user.family, event.id), method: :delete do %>
-                    <img class="editIcon" src="https://img.icons8.com/external-justicon-lineal-justicon/50/000000/external-bin-hotel-essentials-justicon-lineal-justicon.png"/>
-                  <% end %>
-                </div>
-              </div>
-              <div class="event-options">
-                <% if event.add_reminder == true %>
-                  <div class="mr-1"><%= image_tag "icons8-alarme-64.png", class: "reminder-calendar" %><%= event.reminder_comment %></div>
-                <% end %>
-                <% if event.contact.present? %>
-                  <div class="mr-1"><%= image_tag 'icons8-téléphone-qui-sonne-64 (1)', class: "reminder-calendar" %><%= event.contact %></div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
-          <% if @conflicts.where(date: date).present? %>
-            <div class="help-options">
-              <div class="help-items" data-action="click->calendar#display">
-                <h3><%= image_tag "icons8-modifier-64.png" %></h3>
-                <a><%= "Modifie l'événement" %></a>
-              </div>
-              <div class="help-items">
-                <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
-                  <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
-                  <%= "Appelle un proche" %>
-                <% end %>
-              </div>
-              <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-                <div class="help-items">
-                  <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
-                    <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
-                    <%= "Allô babysitter!" %>
-                  <% end %>
-                </div>
-              <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
-                <div class="help-items">
-                  <%= link_to "https://www.uber.com/fr", target: '_blank' do %>
-                    <h3><%= image_tag "icons8-taxi-64.png" %></h3>
-                    <%= "Réserve un taxi" %>
-                  <% end %>
-                </div>
-                <div class="help-items">
-                  <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
-                    <h3><%= image_tag "icons8-train-64.png" %></h3>
-                    <%= "Achète un billet" %>
-                  <% end %>
-                </div>
               <% end %>
-              </div>
             </div>
-          <% end %>
-        </div>
+          </div>
 
+          <div class="right-part">
+            <% if @conflicts.where(date: date).present? %>
+              <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
+                <h3 class="warning">No Transport !!</h3>
+              <% elsif @conflicts.where(date: date, conflict_type: "babysitter").present? %>
+                <h3 class="warning">No Babysitter !!</h3>
+              <% end %>
+              <div class="help-options">
+                <div class="help-items" data-action="click->calendar#display">
+                  <h3><%= image_tag "icons8-modifier-64.png" %></h3>
+                  <a>Modifie l'événement</a>
+                </div>
+                <div class="help-items">
+                  <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
+                  <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
+                  <a>Appelle un proche</a>
+                  <% end %>
+                </div>
+                <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
+                  <div class="help-items">
+                    <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
+                      <a>Allô babysitter!</a>
+                    <% end %>
+                  </div>
+                <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
+                  <div class="help-items">
+                    <%= link_to "https://www.uber.com/fr", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-taxi-64.png" %></h3>
+                      <a>Réserve un taxi</a>
+                    <% end %>
+                  </div>
+                  <div class="help-items">
+                    <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
+                      <h3><%= image_tag "icons8-train-64.png" %></h3>
+                      <a>Achète un billet</a>
+                    <% end %>
+                  </div>
+                <% end %>
+                </div>
+              </div>
+
+            <% else %>
+              <p class="no-problem">Pas de problème d'organisation !</p>
+            <% end %>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
