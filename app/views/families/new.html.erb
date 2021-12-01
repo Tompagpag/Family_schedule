@@ -1,15 +1,22 @@
-<div class="container mt-4">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4 bg-white mt-5">
 
-  <h1>Create a new family</h1>
+      <div class="form-control" id="particularity">
 
-  <%= simple_form_for(@family) do |f| %>
-    <div class="d-flex">
-      <div class="row col-10">
-        <%= f.input :last_name %>
-        <%= f.abyme_for(:family_members) %>
+        <h2>Create a new family</h2>
+
+        <%= simple_form_for(@family) do |f| %>
+          <div class="d-flex">
+            <div class="row col-10">
+              <%= f.input :last_name %>
+              <%= f.abyme_for(:family_members) %>
+            </div>
+          </div>
+          <%= f.button :button, class: "button-52-peach créetafamillebutton" %>
+        <% end %>
+
       </div>
     </div>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
-
+  </div>
 </div>
