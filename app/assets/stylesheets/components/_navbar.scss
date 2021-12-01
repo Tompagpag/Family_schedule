@@ -20,22 +20,29 @@ width : 185px;
   font-size: 24px;
   position: relative;
   // flex-grow: unset;
+
+}
+
+
+
+#navbarSupportedContent {
+  justify-content: flex-end;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 185px;
+  width: 9vw;
 }
 
 .nav-link {
   font-size: 18px;
   color: white;
-  margin: 0px 10px;
+  margin: 0px 4px;
   &:hover {
     border-bottom: 2px solid $light-gray;
   }
 }
 
-#reminder-dropdown img {
-  width: 45px;
-  margin-right: 4vh;
+.user-infos{
+  margin-bottom: 8vh;
+  width: 56vw;
 }

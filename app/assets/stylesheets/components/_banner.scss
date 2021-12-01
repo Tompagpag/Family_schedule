@@ -18,12 +18,12 @@ body {
 
 h1 {
   margin-top: 30px;
-  font-size: 80px;
+  font-size: 68px;
   color: black;
 }
 
 .banner p {
-font-size: 40px;
+font-size: 32px;
 }
 
 body:not(#pages-home) {
@@ -32,8 +32,8 @@ body:not(#pages-home) {
 
     .nav-img {
       background: #ffece8;
-      width: 50vw;
-      height: 27vh;
+      width: 61vw;
+      height: 26vh;
       position: absolute;
       top: -81px;
       right: -66px;
@@ -69,7 +69,7 @@ body#pages-home {
 
     .home-img {
       background-image: url('calendarpic.jpg');
-      width: 50vw;
+      width: 57vw;
       height: 90vh;
       position: absolute;
       top: 0;
