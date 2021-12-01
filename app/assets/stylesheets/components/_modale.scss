@@ -15,7 +15,7 @@
     align-items: center;
   }
   .left-part {
-    width: 60%;
+    width: 70%;
     .all-events {
       height: 100%;
       display: flex;
@@ -24,13 +24,15 @@
     }
   }
   .right-part {
-    width: 40%;
+    width: 30%;
     .no-problem {
       height: 100%;
-      width: 60%;
+      width: 50%;
+      font-weight: bold;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      transform: rotate(16deg);
     }
   }
 }
@@ -48,6 +50,7 @@
   .first-line-block {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   .events-list {
     display: flex;
@@ -70,9 +73,10 @@
   }
   .event-options {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
     font-size: 16px;
-    margin-left: 17%;
+    margin-left: 34%;
   }
 }
 
@@ -86,6 +90,7 @@
   .help-items {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 16px;
     img {
       height: 30px;
       opacity: 0.6;
