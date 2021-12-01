@@ -114,10 +114,6 @@
       position: absolute;
       top: 4px;
       right: 6px;
-      .reminder {
-      width: 25px;
-      height: 25px;
-      }
     }
 
     .countevents {
@@ -196,6 +192,11 @@
     --bs-table-accent-bg: none;
   }
 
+}
+
+.reminder {
+  width: 25px;
+  height: 25px;
 }
 
 // .past {}

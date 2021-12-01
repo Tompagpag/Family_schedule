@@ -6,28 +6,28 @@
   <% end %>
   <div class="help-options">
     <div class="help-items" data-action="click->calendar#display">
-      <a><%= image_tag "icons8-modifier-64.png" %>Modifie l'événement</a>
+      <a><%= image_tag "icons8-modifier-64.png" %>  Modifie l'événement</a>
     </div>
     <div class="help-items">
       <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
-        <div><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %>Appelle un proche</div>
+        <div><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %>  Appelle un proche</div>
       <% end %>
     </div>
     <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
       <div class="help-items">
         <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
-          <div><%= image_tag "icons8-maman-et-moi-classes-64.png" %>Allô babysitter!</div>
+          <div><%= image_tag "icons8-maman-et-moi-classes-64.png" %>  Allô babysitter!</div>
         <% end %>
       </div>
     <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
       <div class="help-items">
         <%= link_to "https://www.uber.com/fr", target: '_blank' do %>
-          <div><%= image_tag "icons8-taxi-64.png" %>Réserve un taxi</div>
+          <div><%= image_tag "icons8-taxi-64.png" %>  Réserve un taxi</div>
         <% end %>
       </div>
       <div class="help-items">
         <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
-          <div><%= image_tag "icons8-train-64.png" %>Achète un billet</div>
+          <div><%= image_tag "icons8-train-64.png" %>  Achète un billet</div>
         <% end %>
       </div>
     <% end %>

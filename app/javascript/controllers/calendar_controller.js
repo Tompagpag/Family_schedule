@@ -10,8 +10,8 @@ export default class extends Controller {
 
       target.closest('.day').classList.add('conflictual');
 
-      if (target.getElementsByClassName('iconcareful').length === 0) {
-          target.insertAdjacentHTML('beforeend', '<img class="iconcareful" src="https://img.icons8.com/windows/50/fa314a/exclamation-mark.png"/>')
+      if (target.getElementsByClassName('reminder').length === 0) {
+        target.insertAdjacentHTML('beforeend', '<img class="reminder" src="icons8-exclamation-mark-48"/>')
       };
     });
   };
