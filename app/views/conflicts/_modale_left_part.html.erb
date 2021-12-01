@@ -1,0 +1,32 @@
+<h3>Mes événements</h3>
+
+<div class="all-events">
+  <% events.each do |event|%>
+    <div class="user-event <%= event.conflict? %>">
+      <div class="first-line-block">
+        <div class="events-list" data-calendar-target="<%= event.conflict? %>">
+          <div class="event-details">
+            <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
+            <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+          </div>
+        </div>
+        <div class="d-none editupdate" data-calendar-target="updateConflict">
+          <%= link_to edit_family_event_path(current_user.family, event.id) do %>
+            <img class="editIcon" src="https://img.icons8.com/material-outlined/50/000000/edit.png"/>
+          <% end %>
+          <%= link_to family_event_path(current_user.family, event.id), method: :delete do %>
+            <img class="editIcon" src="https://img.icons8.com/external-justicon-lineal-justicon/50/000000/external-bin-hotel-essentials-justicon-lineal-justicon.png"/>
+          <% end %>
+        </div>
+      </div>
+      <div class="event-options">
+        <% if event.add_reminder == true %>
+          <div class="mr-1"><%= image_tag "icons8-alarme-64.png", class: "reminder-calendar" %><%= event.reminder_comment %></div>
+        <% end %>
+        <% if event.contact.present? %>
+          <div class="mr-1"><%= image_tag 'icons8-téléphone-qui-sonne-64 (1).png', class: "reminder-calendar" %><%= event.contact %></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

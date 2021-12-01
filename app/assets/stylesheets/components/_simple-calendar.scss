@@ -9,6 +9,10 @@
     border-radius: 20px;
     overflow: hidden;
     border: none;
+    > :not(:first-child) {
+      border-top: 2px solid currentColor;
+      border: none;
+    }
   }
 
   .calendar-heading {
@@ -74,25 +78,19 @@
         }
       }
     }
-  }
-
-  .table > :not(:first-child) {
-    border-top: 2px solid currentColor;
-    border: none;
-  }
-
-  tbody td {
-    text-align: center;
-    vertical-align: top;
-    width: 14%;
-    border: none;
-    padding: 0px;
-    padding-bottom: 10px;
-    > div {
-      border-top: 3px solid;
-      width: 75%;
-      margin: auto;
-      padding: 4px 16px;
+    td {
+      text-align: center;
+      vertical-align: top;
+      width: 14%;
+      border: none;
+      padding: 0px;
+      padding-bottom: 10px;
+      > div {
+        border-top: 3px solid;
+        width: 75%;
+        margin: auto;
+        padding: 4px 16px;
+      }
     }
   }
 
@@ -111,6 +109,16 @@
     cursor: pointer;
     background: #d9eef2;
     border-color: #006b81;
+    position: relative;
+    .logos {
+      position: absolute;
+      top: 4px;
+      right: 6px;
+      .reminder {
+      width: 25px;
+      height: 25px;
+      }
+    }
 
     .countevents {
       display: flex;
@@ -144,15 +152,6 @@
   .conflictual > div {
     background: #ffece8 !important;
     border-color: #bd0000 !important;
-    position: relative;
-    .iconconflict {
-      height: 30px;
-      transform: rotate(10deg);
-      margin-left: 10px;
-      position: absolute;
-      top: 4px;
-      right: 2px;
-    }
     &:hover {
       border-color: #ffece8 !important;
     }
@@ -168,13 +167,13 @@
       &:before {
         height: 32px;
         width: 32px;
-        border-radius: 20%;
+        border-radius: 50%;
         content: "";
         position: absolute;
         left: -25%;
         top: 44%;
         transform: translate(50%, -50%);
-        border: 2px solid #006b81;
+        border: 2px solid black;
         z-index: -1;
       }
     }
@@ -195,11 +194,6 @@
   }
   .table-striped > tbody > tr:nth-of-type(odd) > * {
     --bs-table-accent-bg: none;
-  }
-
-  .reminder-calendar {
-    width: 15px;
-    height: 15px;
   }
 
 }
