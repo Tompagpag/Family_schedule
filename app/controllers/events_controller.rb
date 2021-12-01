@@ -31,8 +31,8 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
+    @event.update(reminder_date: "", reminder_comment: "") if @event.add_reminder == false
     conflict = @event.conflict
-
     if conflict
 
       if @event.contact.present?
@@ -50,7 +50,6 @@ class EventsController < ApplicationController
     else
       @event.set_conflict
     end
-
     redirect_to family_conflicts_path
   end
 
@@ -70,6 +69,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start_at, :end_at, :contact)
+    params.require(:event).permit(:title, :start_at, :end_at, :contact, :add_reminder, :reminder_date, :reminder_comment)
   end
 end
