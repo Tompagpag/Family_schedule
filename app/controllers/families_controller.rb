@@ -5,7 +5,12 @@ class FamiliesController < ApplicationController
 
   def create
     @family = Family.new(family_params)
-    FamilyMember.create(admin: true, user: current_user, family: @family)
+
+    FamilyMember.create!(user: current_user,
+                        admin: true,
+                        family: @family,
+                        first_name: current_user.first_name,
+                        last_name: current_user.last_name)
 
     if @family.save
       redirect_to root_path

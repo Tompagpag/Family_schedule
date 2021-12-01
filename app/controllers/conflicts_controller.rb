@@ -1,8 +1,9 @@
 class ConflictsController < ApplicationController
 
   def index
-    @conflicts = Conflict.all
-    @events = Event.all
+    @family = Family.find(params[:family_id])
+    @events = @family.events
+    @conflicts = @family.conflicts
   end
 
   def create
@@ -10,4 +11,5 @@ class ConflictsController < ApplicationController
 
   def update
   end
+
 end
