@@ -111,15 +111,32 @@
     cursor: pointer;
     background: #d9eef2;
     border-color: #006b81;
-    &:hover {
-      border-color: #d9eef2;
-    }
+
     .countevents {
       display: flex;
       font-size: 16px;
     }
     .date-number {
       color: #006b81;
+    }
+
+    &:before {
+      transition: all 0.2s;
+      height: 0px;
+      width: 20px;
+      background: #006b81;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    &:hover {
+      &:before {
+        height: 3px;
+        transition: all 0.2s;
+      }
     }
   }
 
