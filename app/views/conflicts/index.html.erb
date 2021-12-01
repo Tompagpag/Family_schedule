@@ -1,103 +1,92 @@
-<div class="container" >
- <div id="all" style="position: relative">
+<div class=“container” >
+ <div id=“all” style=“position: relative”>
     <%= month_calendar(events: @events, attribute: :start_at) do |date, events| %>
   </div>
-
-  <div data-controller="calendar" class="la-modale">
-
-    <div data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100">
-      <div class="date-number"><%= date.day %></div>
-      <div class="countevents">
-        <% if events.present? %><%= pluralize(events.count, "event") %><% end %>
-        <% if events.any? { |element| element.add_reminder == true } %><%= image_tag "icons8-alarme-64.png", class: 'reminder-calendar' %><% end %>
+  <div data-controller=“calendar” class=“la-modale”>
+    <div data-bs-toggle=“modal” data-bs-target=“#exampleModal-<%= date %>” class=“h-100">
+      <div class=“date-number”><%= date.day %></div>
+      <div class=“countevents”>
+        <% if events.present? %><%= pluralize(events.count, “event”) %><% end %>
+        <% if events.any? { |element| element.add_reminder == true } %><%= image_tag “icons8-alarme-64.png”, class: ‘reminder-calendar’ %><% end %>
       </div>
     </div>
-
-    <div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModal-<%= date %>Label" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h3 class="modal-title" id="exampleModal-<%= date %>Label"><%= date.strftime("%d-%B-%y") %></h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class=“modal fade” id=“exampleModal-<%= date %>” tabindex=“-1” aria-labelledby=“exampleModal-<%= date %>Label” aria-hidden=“true”>
+      <div class=“modal-dialog”>
+        <div class=“modal-content”>
+          <div class=“modal-header”>
+            <h3 class=“modal-title” id=“exampleModal-<%= date %>Label”><%= date.strftime(“%d-%B-%y”) %></h3>
+            <button type=“button” class=“btn-close” data-bs-dismiss=“modal” aria-label=“Close”></button>
           </div>
-
-          <div class="modal-body">
-
-            <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
-              <div class="warning">No Transport !!</div>
+          <div class=“modal-body”>
+            <% if @conflicts.where(date: date, conflict_type: “transport”).present? %>
+              <div class=“warning”>No Transport !!</div>
             <% end %>
-            <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-              <div class="warning">No Babysitter !!</div>
+            <% if @conflicts.where(date: date, conflict_type: “babysitter”).present? %>
+              <div class=“warning”>No Babysitter !!</div>
             <% end %>
-            <div class="details">
+            <div class=“details”>
               <% events.each do |event|%>
-                <div class="user-event <%= event.conflict? %>">
-                  <div class="events-list" data-calendar-target="<%= event.conflict? %>">
-
+                <div class=“user-event <%= event.conflict? %>“>
+                  <div class=“events-list” data-calendar-target=“<%= event.conflict? %>“>
                       <div>
-                        <div class="d-flex">
-                          <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
+                        <div class=“d-flex”>
+                          <h2 id=“hours”><%= event.start_at.strftime(“%Hh%M”) %>-<%= event.end_at.strftime(“%Hh%M”) %></h2>
                           <h3>
                             <strong><%= event.family_member.first_name %></strong> : <%= event.title %>
                           </h3>
-
                           <% if event.contact.present? %>
                             <h3> (-> Contact: <%= event.contact %>)</h3>
                           <% end %>
                         </div>
                         <% if event.add_reminder == true %>
-                          <p class="reminder-paragraph mb-0">
-                            <%= image_tag "icons8-alarme-64.png", class: "reminder-calendar" %>
+                          <p class=“reminder-paragraph mb-0”>
+                            <%= image_tag “icons8-alarme-64.png”, class: “reminder-calendar” %>
                             <%= event.reminder_comment %>
                           </p>
                         <% end %>
                       </div>
-
-
                   </div>
-                  <div class="d-none" data-calendar-target="updateConflict">
+                  <div class=“d-none” data-calendar-target=“updateConflict”>
                     <%= link_to edit_family_event_path(current_user.family, event.id) do %>
-                      <img class="editIcon" src="https://img.icons8.com/material-outlined/50/000000/edit.png"/>
+                      <img class=“editIcon” src=“https://img.icons8.com/material-outlined/50/000000/edit.png”/>
                     <% end %>
                     <%= link_to family_event_path(current_user.family, event.id), method: :delete do %>
-                      <img class = "editIcon" src="https://img.icons8.com/external-justicon-lineal-justicon/50/000000/external-bin-hotel-essentials-justicon-lineal-justicon.png"/>
+                      <img class = “editIcon” src=“https://img.icons8.com/external-justicon-lineal-justicon/50/000000/external-bin-hotel-essentials-justicon-lineal-justicon.png”/>
                     <% end %>
                   </div>
                 </div>
               <% end %>
             </div>
-
             <% if @conflicts.where(date: date).present? %>
-              <div class="help-options">
-                <div class="help-items" data-action="click->calendar#display">
-                  <h3><%= image_tag "icons8-modifier-64.png" %></h3>
-                  <a><%= "Modifie l'événement" %></a>
+              <div class=“help-options”>
+                <div class=“help-items” data-action=“click->calendar#display”>
+                  <h3><%= image_tag “icons8-modifier-64.png” %></h3>
+                  <a><%= “Modifie l’événement” %></a>
                 </div>
-                <div class="help-items">
-                  <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
-                    <h3><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %></h3>
-                    <%= "Appelle un proche" %>
+                <div class=“help-items”>
+                  <%= link_to family_contacts_path(current_user.family), target: ‘blank’ do %>
+                    <h3><%= image_tag “icons8-téléphone-qui-sonne-64 (1).png” %></h3>
+                    <%= “Appelle un proche” %>
                   <% end %>
                 </div>
-                <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-                  <div class="help-items">
-                    <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
-                      <h3><%= image_tag "icons8-maman-et-moi-classes-64.png" %></h3>
-                      <%= "Allô babysitter!" %>
+                <% if @conflicts.where(date: date, conflict_type: “babysitter”).present? %>
+                  <div class=“help-items”>
+                    <%= link_to “https://babysittor.com/fr”, target: ‘_blank’ do %>
+                      <h3><%= image_tag “icons8-maman-et-moi-classes-64.png” %></h3>
+                      <%= “Allô babysitter!” %>
                     <% end %>
                   </div>
-                <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
-                  <div class="help-items">
-                    <%= link_to "https://www.uber.com/fr", target: '_blank' do %>
-                      <h3><%= image_tag "icons8-taxi-64.png" %></h3>
-                      <%= "Réserve un taxi" %>
+                <% elsif @conflicts.where(date: date, conflict_type: “transport”).present? %>
+                  <div class=“help-items”>
+                    <%= link_to “https://www.uber.com/fr”, target: ‘_blank’ do %>
+                      <h3><%= image_tag “icons8-taxi-64.png” %></h3>
+                      <%= “Réserve un taxi” %>
                     <% end %>
                   </div>
-                  <div class="help-items">
-                    <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
-                      <h3><%= image_tag "icons8-train-64.png" %></h3>
-                      <%= "Achète un billet" %>
+                  <div class=“help-items”>
+                    <%= link_to “https://www.sncf.com/fr”, target: ‘_blank’ do %>
+                      <h3><%= image_tag “icons8-train-64.png” %></h3>
+                      <%= “Achète un billet” %>
                     <% end %>
                   </div>
                 <% end %>
@@ -105,13 +94,9 @@
               </div>
             <% end %>
           </div>
-
         </div>
       </div>
     </div>
-
   </div>
-
   <% end %>
-
 </div>

@@ -1,15 +1,16 @@
 <div class="banner d-flex align-items-center">
-<div class="banner_opacity"></div>
-  <div class="container">
-    <h1>Family Schedule</h1>
-    <p>Tout le calendrier de la famille au même endroit!</p>
-      <% if user_signed_in? %>
-        <% if current_user.family_member? %>
-          <%= link_to "Mon Family Schedule", family_conflicts_path(current_user.family), class: "button-52" %>
-        <% else %>
-          <%= link_to "Crée ta famille", new_family_path, class: "button-52" %>
+  <div class="banner_opacity"></div>
+    <div class="container">
+      <h1>Family Schedule</h1>
+      <p>Tout le calendrier de la famille <br> au même endroit!</p>
+        <% if user_signed_in? %>
+          <% if current_user.family_member? %>
+            <%= link_to "Mon Family Schedule", family_conflicts_path(current_user.family), class: "button-52" %>
+          <% else %>
+            <%= link_to "Crée ta famille", new_family_path, class: "button-52" %>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>
+<div class="home-img"></div>

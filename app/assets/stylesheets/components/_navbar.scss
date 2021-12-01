@@ -1,11 +1,17 @@
 .navbar-lewagon {
   align-items: center;
-  background-color: #fffffff2;
+ // color: transparent;
+  position: relative;
+}
+
+.navbar {
+  padding: 0px;
 }
 
 .container-fluid {
-  // justify-content: unset !important;
+  padding-left: 0px;
 }
+
 .logo img {
 width : 185px;
 }
@@ -22,6 +28,7 @@ width : 185px;
 
 .nav-link {
   font-size: 18px;
+  color: white;
   margin: 0px 10px;
   &:hover {
     border-bottom: 2px solid $light-gray;
