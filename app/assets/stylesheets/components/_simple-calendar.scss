@@ -116,6 +116,7 @@
     }
     .countevents {
       display: flex;
+      align-items: center;
       font-size: 16px;
     }
     .date-number {
@@ -132,8 +133,8 @@
       transform: rotate(10deg);
       margin-left: 10px;
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 4px;
+      right: 2px;
     }
     &:hover {
       border-color: #ffece8 !important;
@@ -148,15 +149,15 @@
      .date-number {
       position: relative;
       &:before {
-        height: 42px;
-        width: 42px;
-        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+        border-radius: 20%;
         content: "";
         position: absolute;
         left: -25%;
-        top: 47%;
+        top: 44%;
         transform: translate(50%, -50%);
-        background: #d9eef2;
+        border: 2px solid #006b81;
         z-index: -1;
       }
     }
@@ -182,7 +183,7 @@
   .reminder-calendar {
     width: 15px;
     height: 15px;
-    margin-left: 1vh;
+    margin: 0 6px;
   }
 
 }

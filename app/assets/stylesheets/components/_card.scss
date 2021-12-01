@@ -8,35 +8,44 @@
 }
 
 .warning {
-  font-size: 40px;
-  font-weight: bold;
+  width: fit-content;
+  padding: 0 4px;
+  font-size: 30px;
   background: #ffece8;
-  font-family: 'Amatic SC', cursive;
   margin-bottom: 10px;
 }
 
-.la-modale .details .user-event {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.la-modale .user-event {
   padding: 1vh;
+  .first-line-block {
+    display: flex;
+    justify-content: space-between;
+  }
   .events-list {
     display: flex;
     align-items: center;
-
   }
-}
-
-.la-modale .details h2 {
-  font-size: 1.5rem;
-  color: #ED8074;
-  margin: 0px 5px;
-}
-
-.la-modale .details h3 {
-  font-family: 'Overpass', sans-serif;
-  font-size: 1.2rem;
-  margin: 0px 5px;
+  .event-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: #ED8074;
+    margin: 0px 5px;
+  }
+  h3 {
+    font-family: 'Overpass', sans-serif;
+    font-size: 1.2rem;
+    margin: 0px 5px;
+  }
+  .event-options {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 16px;
+    margin-left: 17%;
+  }
 }
 
 .la-modale .help-options {
@@ -74,12 +83,10 @@
 }
 
 .editIcon {
-    height: 1.2rem;
-    margin-left: 10px;
-  }
+  height: 1.2rem;
+  margin-left: 10px;
+}
 
-.reminder-paragraph {
-  text-align: left;
-  font-size: 20px;
-
+.editupdate {
+  line-height: max($numbers: 10px);
 }
