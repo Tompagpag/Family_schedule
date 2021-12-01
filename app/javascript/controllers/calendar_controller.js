@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["updateConflict", "true"];
 
   connect() {
-
     this.trueTargets.forEach((target) => {
       target.closest('.day').classList.add('conflictual');
       if (target.getElementsByClassName('iconcareful').length === 0) {
