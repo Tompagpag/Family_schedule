@@ -2,15 +2,15 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4 bg-white mt-5">
       <div class="form-wrapper" style="width: 400px; margin: 10px auto;">
-        <h2>Modifier une contact</h2>
+        <h2>Modifier un contact</h2>
           <%= simple_form_for [@family, @contact] do |f| %>
           <div class="d-flex">
             <div class="row col-10">
-              <%= f.input :first_name %>
-              <%= f.input :last_name %>
-              <%= f.input :email %>
-              <%= f.input :phone_number %>
-              <%= f.input :comment %>
+              <%= f.input :first_name, label: 'Prénom' %>
+              <%= f.input :last_name, label: 'Nom' %>
+              <%= f.input :email, label: 'Email' %>
+              <%= f.input :phone_number, label: 'Numéro de téléphone' %>
+              <%= f.input :comment, label: 'Type de connaissance' %>
             </div>
           </div>
           <%= f.button :button, 'Modifier', class: "button-52-peach" %>
