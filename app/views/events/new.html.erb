@@ -5,11 +5,16 @@
         <h2>Ajouter un événement</h2>
           <%= simple_form_for [@family, @event] do |f| %>
           <div class="d-flex">
-            <div class="row">
+            <div class="row" data-controller="reminder">
               <%= f.input :family_member, collection: current_user.family.family_members, label: 'Ajoute un membre' %>
               <%= f.input :title, label: "Titre" %>
               <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker" }, label: "Début" %>
               <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin" %>
+              <%= f.input :add_reminder, as: :boolean, checked_value: 'true', unchecked_value: 'false', label: 'Ajouter un rappel ?', input_html: { data: { action: 'change->reminder#addReminder', reminder_target: 'test' } } %>
+              <div class="d-none" data-reminder-target="reminderDetails">
+                <%= f.input :reminder_date, as: :string, required: true, input_html: {class: "datepicker" } %>
+                <%= f.input :reminder_comment, label: "Commentaire" %>
+              </div>
               <%= f.input :contact, label: 'Contact' %>
             </div>
           </div>
