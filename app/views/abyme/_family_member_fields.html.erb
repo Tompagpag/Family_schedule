@@ -1,14 +1,12 @@
 <%# Partial for family_member fields %>
 
-<div>
+<div id="abyme">
   <%= f.hidden_field :_destroy %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-
-  <hr>
-  <div class="admin user">
-    <%= f.input :email %>
+  <%= f.input :first_name, label: "Prénom" %>
+  <%= f.input :last_name, label: "Nom" %>
+  <div id="admin user">
     <%= f.input :admin %>
+    <%= f.input :email %>
   </div>
-  <%= remove_associated_record content: "Remove family_member" %>
+  <%= remove_associated_record(content: "-", html: {id: "delete-member"}) %>
 </div>
