@@ -7,6 +7,34 @@
   border-radius: 4px;
 }
 
+.modal-body {
+  display: flex;
+  .left-part, .right-part, .no-problem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-part {
+    width: 60%;
+    .all-events {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .right-part {
+    width: 40%;
+    .no-problem {
+      height: 100%;
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
 .warning {
   width: fit-content;
   padding: 0 4px;
@@ -51,13 +79,15 @@
 .la-modale .help-options {
   display: flex;
   text-align: center;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: 5vh;
   margin-top: 5vh;
   justify-content: space-around;
   .help-items {
+  display: flex;
+  justify-content: flex-start;
     img {
-      height: 40px;
+      height: 30px;
       opacity: 0.6;
     }
     a {
