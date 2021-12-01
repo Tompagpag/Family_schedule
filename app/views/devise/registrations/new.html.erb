@@ -14,25 +14,29 @@
 
       <%= f.input :first_name,
         required: true,
+        label: "Prénom",
         autofocus: true,
         input_html: { autocomplete: "First Name" }%>
 
       <%= f.input :last_name,
         required: true,
+        label: "Nom",
         autofocus: true,
         input_html: { autocomplete: "Last Name" }%>
 
       <%= f.input :password,
                   required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  label: "Mot de passe",
+                  hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
+                  label: "Confirme le mot de passe",
                   input_html: { autocomplete: "new-password" } %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :button, "Je crée mon compte ", class:'button-52-peach' %>
+      <%= f.button :button, "Je crée mon compte", class:'button-52-peach' %>
     </div>
   <% end %>
 
