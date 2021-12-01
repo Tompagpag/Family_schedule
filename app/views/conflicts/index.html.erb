@@ -9,6 +9,7 @@
       <div class="date-number"><%= date.day %></div>
       <div class="countevents">
         <% if events.present? %><%= pluralize(events.count, "event") %><% end %>
+        <% if events.any? { |element| element.add_reminder == true } %><%= image_tag "icons8-alarme-64.png", class: 'reminder-calendar' %><% end %>
       </div>
     </div>
 
@@ -35,6 +36,14 @@
                   <div class="events-list" data-calendar-target="<%= event.conflict? %>">
                     <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
                     <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
+                    <div>
+                      <h3>
+                        <% if event.add_reminder == true %>
+                          <%= image_tag "icons8-alarme-64.png", class: "reminder-calendar" %>
+                          <%= event.reminder_comment %>
+                        <% end %>
+                      </h3>
+                    </div>
                   </div>
                   <div class="d-none" data-calendar-target="updateConflict">
                     <%= link_to edit_family_event_path(current_user.family, event.id) do %>
