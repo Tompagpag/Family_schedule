@@ -7,10 +7,18 @@
   border: none;
   border-bottom: 1px solid grey;
   border-radius: 0;
+  &:focus {
+    border-color: #006b81;
+    box-shadow:  0 0 0 0.25rem #d9eef2;
+  }
 }
 
 .form-select {
   border-radius : 30px;
+  &:focus {
+    border-color: #006b81;
+    box-shadow:  0 0 0 0.25rem #d9eef2;
+  }
 }
 
 a {

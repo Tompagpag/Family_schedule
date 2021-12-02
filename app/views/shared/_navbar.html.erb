@@ -30,7 +30,7 @@
               <%= link_to "Importer GoogleAgenda", calendar_redirect_path, class: "nav-link" %>
             </li>
             <% end %>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" id="addmargin">
               <%= image_tag "icons8-compte-test-64.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
