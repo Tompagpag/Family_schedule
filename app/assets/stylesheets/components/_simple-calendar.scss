@@ -126,6 +126,7 @@
     }
 
     &:before {
+      content: "";
       transition: all 0.2s;
       height: 0px;
       width: 20px;
@@ -148,11 +149,29 @@
   .conflictual > div {
     background: #ffece8 !important;
     border-color: #bd0000 !important;
-    &:hover {
-      border-color: #ffece8 !important;
-    }
+
     .date-number {
       color: #bd0000 !important;
+    }
+
+    &:before {
+      content: "";
+      transition: all 0.2s;
+      height: 0px;
+      width: 20px;
+      background: #bd0000;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    &:hover {
+      &:before {
+        height: 3px;
+        transition: all 0.2s;
+      }
     }
   }
 
@@ -166,10 +185,48 @@
         border-radius: 50%;
         content: "";
         position: absolute;
-        left: -25%;
+        left: -22%;
         top: 44%;
         transform: translate(50%, -50%);
         border: 2px solid black;
+        z-index: -1;
+      }
+    }
+  }
+
+    .today.has-events {
+    background: white;
+     .date-number {
+      position: relative;
+      &:before {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+        left: -22%;
+        top: 44%;
+        transform: translate(50%, -50%);
+        border: 2px solid #006b81;
+        z-index: -1;
+      }
+    }
+  }
+
+  .today.conflictual {
+    background: white;
+    .date-number {
+      position: relative;
+      &:before {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+        left: -22%;
+        top: 44%;
+        transform: translate(50%, -50%);
+        border: 2px solid #bd0000;
         z-index: -1;
       }
     }
