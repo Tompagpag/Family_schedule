@@ -4,14 +4,15 @@
   <title>Erreur 404</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    .body {
 
+    body {
+      background-color: #221E1F;
     }
 
     .button-52-peach {
       font-size: 24px;
 
-      color: black !important;
+      color: white !important;
       letter-spacing: 1px;
       padding: 13px 20px 13px;
       outline: 0;
@@ -39,7 +40,7 @@
       top: -7px;
       left: -7px;
       transition: 0.2s;
-      border: 1px solid black;
+      border: 1px solid white;
     }
 
     .button-52-peach:hover:after {
@@ -48,29 +49,33 @@
     }
 
     .default-error-page {
-      background-color: #EFEFEF;
-      color: #2E2F30;
-      text-align: center;
+
+      color: white;
+      font-weight: bold;
       font-family: arial, sans-serif;
       margin: 0 auto;
     }
 
+    .dialog {
+      text-align: center;
+    }
+
     .error-404 {
-      margin: 20vh auto;
+      margin: 17vh auto;
       color: #F08B75;
     }
 
     .msg-404 {
-      margin: 10vh auto;
-      color: #1D7A8C;
-    }
+      margin: 15vh auto;
 
+    }
 
   </style>
 </head>
 
 <body class="default-error-page">
   <!-- This file lives in public/404.html -->
+  <img src="logo.png" style="width: 10vw; height: 17vh;">
   <div class="dialog">
     <div>
       <div class='error-404'>
