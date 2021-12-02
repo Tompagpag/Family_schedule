@@ -4,12 +4,12 @@
 
       <div class="form-control" id="particularity">
 
-        <h2>Créée ta famille</h2>
+        <h2>Crée ta famille</h2>
 
         <%= simple_form_for(@family) do |f| %>
           <div class="d-flex">
             <div class="row col-10">
-              <%= f.input :last_name, label: "Nom de ta famille"%>
+              <%= f.input :last_name, label: "Nom de ta famille", , placeholder: "Desrosiers"%>
               <%= f.abyme_for(:family_members) do |abyme|%>
                 <%= abyme.records %>
                 <%= abyme.new_records %>
@@ -17,7 +17,7 @@
               <% end %>
             </div>
           </div>
-          <%= f.button :button, class: "button-52-peach" %>
+          <%= f.button :button, "Créer" class: "button-52-peach" %>
         <% end %>
 
       </div>

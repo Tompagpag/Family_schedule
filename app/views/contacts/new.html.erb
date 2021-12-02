@@ -4,11 +4,11 @@
     <h2>Ajouter un contact </h2>
       <%= simple_form_for [@family, @contact] do |f| %>
         <div class="form-inputs">
-            <%= f.input :first_name, label: 'Prénom' %>
-            <%= f.input :last_name, label: 'Nom' %>
-            <%= f.input :email, label: 'Email' %>
-            <%= f.input :phone_number, label: 'Numéro de téléphone' %>
-            <%= f.input :comment, label: 'Type de connaissance' %>
+            <%= f.input :first_name, label: 'Prénom', placeholder: "Alex" %>
+            <%= f.input :last_name, label: 'Nom', placeholder: "Desrosiers" %>
+            <%= f.input :email, label: 'Email', placeholder: "me@gmail.com" %>
+            <%= f.input :phone_number, label: 'Numéro de téléphone', placeholder: "+33 667546723" %>
+            <%= f.input :comment, label: 'Type de connaissance', placeholder: "Grand-père? Babysitter?" %>
         </div>
         <div class="form-actions">
           <%= f.button :button, 'Ajouter', class:'button-52-peach' %>
