@@ -6,10 +6,6 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def index
-    @events = Event.all
-  end
-
   def create
     @event = Event.new(event_params)
     @family = Family.find(params[:family_id])
