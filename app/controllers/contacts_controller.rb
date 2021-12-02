@@ -1,7 +1,9 @@
 class ContactsController < ApplicationController
   def index
     @family = Family.find(params[:family_id])
-    @contacts = Contact.where(family: @family)
+    # @contacts = Contact.where(family: @family)
+    @contacts = Contact.where(family: @family).order(id: 'ASC')
+    # @contacts = Contact.all.order(id: 'ASC')
   end
 
   def new
