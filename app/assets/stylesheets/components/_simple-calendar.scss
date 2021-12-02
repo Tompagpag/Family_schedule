@@ -166,10 +166,48 @@
         border-radius: 50%;
         content: "";
         position: absolute;
-        left: -25%;
+        left: -22%;
         top: 44%;
         transform: translate(50%, -50%);
         border: 2px solid black;
+        z-index: -1;
+      }
+    }
+  }
+
+    .today.has-events {
+    background: white;
+     .date-number {
+      position: relative;
+      &:before {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+        left: -22%;
+        top: 44%;
+        transform: translate(50%, -50%);
+        border: 2px solid #006b81;
+        z-index: -1;
+      }
+    }
+  }
+
+  .today.conflictual {
+    background: white;
+    .date-number {
+      position: relative;
+      &:before {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+        left: -22%;
+        top: 44%;
+        transform: translate(50%, -50%);
+        border: 2px solid #bd0000;
         z-index: -1;
       }
     }
