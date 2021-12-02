@@ -14,8 +14,11 @@
 
               <%= f.input :contact, label: 'Qui gère?', placeholder: "Nouvelle babysitter: 06 56 37 56 98" %>
               <%= f.input :add_reminder, as: :boolean, checked_value: 'true', unchecked_value: 'false', label: 'Ajouter un rappel ?', input_html: { data: { action: 'change->reminder#addReminder', reminder_target: 'test' }, class: "toggle"} %>
+              <div class="d-none" data-reminder-target="reminderDetails">
+                <%= f.input :reminder_date, as: :string, required: true, label: 'Date de rappel', input_html: {class: "datepicker" }, placeholder: "sélectionne jour/heure" %>
+                <%= f.input :reminder_comment, label: "Quelque-chose à se rappeler?", placeholder: "Apporter des cotillons!" %>
               </div>
-
+              </div>
             </div>
           </div>
 
