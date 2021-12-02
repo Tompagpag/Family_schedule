@@ -37,7 +37,7 @@
     position: relative;
     padding-top: 10px;
     padding-left: 10px;
-    &:before {
+    &:after {
       content: "";
       width: 97%;
       height: 103%;
@@ -92,7 +92,11 @@
 }
 
 .la-modale .help-options {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
   margin-bottom: 15%;
+  justify-content: space-around;
   .help-items {
   display: flex;
   justify-content: flex-start;
