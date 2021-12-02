@@ -10,11 +10,11 @@
               <%= f.input :title, label: "Titre" %>
               <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker" }, label: "Début" %>
               <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin" %>
-              <%= f.input :contact, label: 'Contact ?' %>
+              <%= f.input :contact, label: 'Qui gère?', placeholder: "Nouvelle babysitter: 06 56 37 56 98" %>
               <%= f.input :add_reminder, as: :boolean, checked_value: 'true', unchecked_value: 'false', label: 'Ajouter un rappel ?', input_html: { data: { action: 'change->reminder#addReminder', reminder_target: 'test' }, class: "toggle" } %>
               <div class="d-none" data-reminder-target="reminderDetails">
-                <%= f.input :reminder_date, as: :string, label: 'Date de rappel', required: true, input_html: {class: "datepicker" } %>
-                <%= f.input :reminder_comment, label: "Commentaire" %>
+                <%= f.input :reminder_date, as: :string, label: 'Date de rappel', required: true, input_html: {class: "datepicker" }, placeholder: "AAAA-MM-JJ HH:MM" %>
+                <%= f.input :reminder_comment, label: "Ne pas oublier:", placeholder: "Apporter des cotillons!" %>
               </div>
             </div>
           </div>

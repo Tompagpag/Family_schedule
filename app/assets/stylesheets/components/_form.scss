@@ -107,3 +107,7 @@ a {
 .event-form-font .form-check {
   padding-left: 0;
 }
+
+::placeholder {
+  color: lightgrey !important;
+}
