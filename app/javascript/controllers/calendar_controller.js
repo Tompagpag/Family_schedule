@@ -11,7 +11,6 @@ export default class extends Controller {
       target.closest('.day').classList.add('conflictual');
 
       if (target.getElementsByClassName('reminder').length === 0) {
-        console.log(target);
         target.insertAdjacentHTML('beforeend', `${this.imageTagValue}`)
       };
     });
