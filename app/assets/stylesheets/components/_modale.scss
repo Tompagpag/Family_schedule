@@ -12,6 +12,7 @@
 .modal-content {
   border: none;
   border-radius: 4px;
+  margin-top: 16%;
 }
 
 .modal-body {
@@ -22,11 +23,6 @@
     h3 {
       width: fit-content;
       margin-bottom: 10px;
-    }
-    .no-problem {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     .all-events {
       height: fit-content;
@@ -41,7 +37,7 @@
     position: relative;
     padding-top: 10px;
     padding-left: 10px;
-    &:before {
+    &:after {
       content: "";
       width: 97%;
       height: 103%;
@@ -53,12 +49,11 @@
     }
     .no-problem {
       height: 100%;
-      width: 50%;
       font-weight: bold;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      transform: rotate(16deg);
+      font-size: 1.2rem
     }
   }
 }
@@ -100,8 +95,7 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  margin-bottom: 5vh;
-  margin-top: 5vh;
+  margin-bottom: 15%;
   justify-content: space-around;
   .help-items {
   display: flex;

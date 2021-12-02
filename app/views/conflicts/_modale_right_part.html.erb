@@ -1,8 +1,8 @@
 <% if @conflicts.where(date: date).present? %>
   <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
-    <h3>Tu as un sujet de transport !</h3>
+    <h3>Tu as un sujet de <br> transport !</h3>
   <% elsif @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-    <h3>Tu as un sujet de Babysitter !</h3>
+    <h3>Tu as un sujet de <br> Babysitter !</h3>
   <% end %>
   <div class="help-options">
     <div class="help-items" data-action="click->calendar#display">
@@ -35,5 +35,5 @@
   </div>
 
 <% else %>
-  <p class="no-problem">OUF ! Tout va bien pour cette fois 😃</p>
+  <p class="no-problem">Organisation qui roule 😃</p>
 <% end %>
