@@ -4,38 +4,42 @@
   <title>Erreur 404</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    .button-52-peach {
-        font-size: 24px;
+    .body {
 
-        color: black !important;
-        letter-spacing: 1px;
-        padding: 13px 20px 13px;
-        outline: 0;
-        border: 1px solid black;
-        cursor: pointer;
-        position: relative;
-        background-color: rgba(0, 0, 0, 0);
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        z-index: 8;
-        background: #f08b75;
-        margin-top: 7px;
-        margin-left: 7px;
-        border: none;
+    }
+
+    .button-52-peach {
+      font-size: 24px;
+
+      color: black !important;
+      letter-spacing: 1px;
+      padding: 13px 20px 13px;
+      outline: 0;
+      border: 1px solid black;
+      cursor: pointer;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0);
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      z-index: 8;
+      background: #f08b75;
+      margin-top: 7px;
+      margin-left: 7px;
+      border: none;
     }
     .button-52-peach:after {
-        content: "";
-        width: 100%;
-        z-index: -1;
-        position: absolute;
-        height: 100%;
-        top: -7px;
-        left: -7px;
-        transition: 0.2s;
-        border: 1px solid black;
+      content: "";
+      width: 100%;
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      top: -7px;
+      left: -7px;
+      transition: 0.2s;
+      border: 1px solid black;
     }
 
     .button-52-peach:hover:after {
@@ -51,6 +55,16 @@
       margin: 0 auto;
     }
 
+    .error-404 {
+      margin: 20vh auto;
+      color: #F08B75;
+    }
+
+    .msg-404 {
+      margin: 10vh auto;
+      color: #1D7A8C;
+    }
+
 
   </style>
 </head>
@@ -59,17 +73,16 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <div>
+      <div class='error-404'>
         <h1>Erreur 404</h1>
       </div>
-      <div>
+      <div class="msg-404">
         <p>La page que vous cherchez a atteindre n'existe pas</p>
       </div>
     </div>
-    <div>
-
-    </div>
+    <div class="back-to-homepage">
       <a href="/" class="button-52-peach">Retourner a la page d'accueil</a>
+    </div>
   </div>
 </body>
 </html>
