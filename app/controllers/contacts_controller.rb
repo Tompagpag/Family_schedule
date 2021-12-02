@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   def index
     @family = Family.find(params[:family_id])
-    @contacts = Contact.all
+    @contacts = Contact.all.order(id: 'ASC')
   end
 
   def new
