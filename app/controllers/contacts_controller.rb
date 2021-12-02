@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   def index
     @family = Family.find(params[:family_id])
-    @contacts = Contact.all
+    @contacts = Contact.where(family: @family)
   end
 
   def new
@@ -36,6 +36,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    @family = Family.find(params[:family_id])
     @contact = Contact.find(params[:id])
     @contact.destroy
     redirect_to family_contacts_path(@family)
