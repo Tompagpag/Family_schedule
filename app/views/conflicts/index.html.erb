@@ -5,7 +5,7 @@
         <div data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100">
           <div class="date-number"><%= date.day %></div>
             <div class="countevents">
-              <% if events.present? %><%= events.count %> évmt(s)<% end %>
+              <% if events.present? %><%= events.count %> evt(s)<% end %>
               <div class="logos">
                 <% if events.any? { |event| event.add_reminder } %><%= image_tag "icons8-alarme-64.png", class: 'reminder' %><% end %>
                 <% if events.any? { |event| event.conflict? } %><%= image_tag "icons8-exclamation-mark-48.png", class: 'reminder' %><% end %>
