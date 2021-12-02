@@ -6,7 +6,7 @@
         <%= simple_form_for [@family, @event] do |f| %>
           <div class="d-flex">
             <div class="row col-10 event-form-font" data-controller="reminder">
-              <%= f.input :family_member, collection: current_user.family.family_members, label: 'Pour qui?' %>
+              <%= f.input :family_member, collection: current_user.family.family_members, label: 'Pour qui?', input_html: {class:"no-repeat-background"} %>
               <%= f.input :title, label: "Quel événement?", placeholder: "c'est la fête!" %>
               <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker" }, label: "Début", placeholder: "AAAA-MM-JJ HH:MM" %>
               <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin", placeholder: "AAAA-MM-JJ HH:MM" %>
