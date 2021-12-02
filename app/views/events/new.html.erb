@@ -7,18 +7,18 @@
           <div class="d-flex">
             <div class="row event-form-font" data-controller="reminder">
 
-              <%= f.input :family_member, collection: current_user.family.family_members, label: 'Ajoute un membre' %>
-              <%= f.input :title, label: "Titre" %>
-              <%= f.input :start_at, as: :string, placeholder: 'select date', required: true, input_html: {class: "datepicker" }, label: "Début" %>
-              <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin" %>
+              <%= f.input :family_member, collection: current_user.family.family_members, prompt: "Lola?", label: 'Pour qui?' %>
+              <%= f.input :title, label: "Quel événement?", placeholder: "c'est la fête!" %>
+              <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker" }, label: "Début", placeholder: "sélectionne jour/heure" %>
+              <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"}, label: "Fin", placeholder: "sélectionne jour/heure" %>
 
-              <%= f.input :contact, label: 'Contact' %>
-              <%= f.input :add_reminder, as: :boolean, checked_value: 'true', unchecked_value: 'false', label: 'Ajouter un rappel ?', input_html: { data: { action: 'change->reminder#addReminder', reminder_target: 'test' }, class: "toggle" } %>
+              <%= f.input :contact, label: 'Qui gère?', placeholder: "Nouvelle babysitter: 06 56 37 56 98" %>
+              <%= f.input :add_reminder, as: :boolean, checked_value: 'true', unchecked_value: 'false', label: 'Ajouter un rappel ?', input_html: { data: { action: 'change->reminder#addReminder', reminder_target: 'test' }, class: "toggle"} %>
               <div class="d-none" data-reminder-target="reminderDetails">
-                <%= f.input :reminder_date, as: :string, required: true, label: 'Date de rappel', input_html: {class: "datepicker" } %>
-                <%= f.input :reminder_comment, label: "Commentaire" %>
+                <%= f.input :reminder_date, as: :string, required: true, label: 'Date de rappel', input_html: {class: "datepicker" }, placeholder: "sélectionne jour/heure" %>
+                <%= f.input :reminder_comment, label: "Quelque-chose à se rappeler?", placeholder: "Apporter des cotillons!" %>
               </div>
-
+              </div>
             </div>
           </div>
 

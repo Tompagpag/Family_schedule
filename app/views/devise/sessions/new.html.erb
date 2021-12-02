@@ -7,11 +7,13 @@
       <div class="form-inputs">
       <%= f.input :email,
                   required: false,
+                  placeholder: "me@gmail.com",
                   autofocus: true,
                   input_html: { autocomplete: "email" } %>
       <%= f.input :password,
                   required: false,
                   label: "Mot de passe",
+                  placeholder: "........",
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable?%>
     </div>
@@ -20,6 +22,7 @@
       <%= f.button :button, "Continuer", class:'button-52-peach' %>
     </div>
     <% end %>
+    <br>
 
     <%= render "devise/shared/links" %>
 

@@ -9,7 +9,7 @@
         <%= simple_form_for(@family) do |f| %>
           <div class="d-flex">
             <div class="row col-10">
-              <%= f.input :last_name, label: "Nom de ta famille"%>
+              <%= f.input :last_name, label: "Nom de ta famille", , placeholder: "Desrosiers"%>
               <%= f.abyme_for(:family_members) do |abyme|%>
                 <%= abyme.records %>
                 <%= abyme.new_records %>
