@@ -25,6 +25,11 @@ lola = FamilyMember.create!(first_name: "Lola", last_name: "Desrosiers", admin: 
 
 Event.create(title: "tennis", start_at: "2021-12-01-11:30", end_at: "2021-12-01-12:45", family: family, family_member: jules)
 Event.create(title: "danse", start_at: "2021-12-01-12:30", end_at: "2021-12-01-14:00", family: family, family_member: lola)
+Event.create(title: "piano", start_at: "2021-12-18-15:30", end_at: "2021-12-18-16:30", family: family, family_member: lola)
+Event.create(title: "gouter Anais", start_at: "2021-12-12-15:30", end_at: "2021-12-12-18:30", family: family, family_member: jules)
+Event.create(title: "football", start_at: "2021-12-05-15:30", end_at: "2021-12-05-17:00", family: family, family_member: jules)
+Event.create(title: "Disneyland !!", start_at: "2021-12-11-09:30", end_at: "2021-12-11-18:00", family: family, family_member: lola)
+
 
 # 10.times do
 #   first_name = Faker::Name.first_name
