@@ -4,7 +4,7 @@
 
 .modal-header {
   border-bottom: none;
-  padding: 2rem;
+  padding: 1rem;
   .modal-title {
     border-bottom: 1px solid black;
   }
@@ -14,11 +14,12 @@
   border: none;
   border-radius: 4px;
   margin-top: 16%;
+  width: 105%;
 }
 
 .modal-body {
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   .left-part {
     width: 60%;
     margin-right: 5%;
@@ -34,7 +35,7 @@
     }
   }
   .right-part {
-    width: 30%;
+    width: 34%;
     background-color: #ffece8;
     position: relative;
     padding-top: 10px;
@@ -84,14 +85,14 @@
   }
   p {
     margin: 0px 5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .event-options {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     font-size: 16px;
-    margin-left: 20%;
+    margin-left: 27%;
   }
 }
 
@@ -101,13 +102,14 @@
   flex-direction: column;
   margin-bottom: 15%;
   justify-content: space-around;
+  margin-top: 10%;
   .help-items {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 16px;
   z-index: 3;
     img {
-      height: 30px;
+      height: 28px;
       opacity: 0.6;
     }
     a {
