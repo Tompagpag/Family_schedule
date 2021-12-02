@@ -5,14 +5,14 @@ export default class extends Controller {
   static targets = ["updateConflict", "true"];
 
   connect() {
+
     this.trueTargets.forEach((target) => {
+
       target.closest('.day').classList.add('conflictual');
-      if (target.getElementsByClassName('iconcareful').length === 0) {
-          target.insertAdjacentHTML('beforeend', '<img class="iconcareful" src="https://img.icons8.com/windows/50/fa314a/exclamation-mark.png"/>')
+
+      if (target.getElementsByClassName('reminder').length === 0) {
+        target.insertAdjacentHTML('beforeend', '<img class="reminder" src="icons8-exclamation-mark-48"/>')
       };
-      if (target.closest('.la-modale').getElementsByClassName('iconconflict').length === 0) {
-        target.closest('.la-modale').querySelector('.countevents').insertAdjacentHTML('beforeend', '<img class="iconconflict" src="https://img.icons8.com/windows/50/fa314a/exclamation-mark.png"/>');
-      }
     });
   };
 
@@ -23,5 +23,4 @@ export default class extends Controller {
       }
     })
   };
-
 }

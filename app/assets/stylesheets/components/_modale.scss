@@ -2,6 +2,13 @@
   max-width: 50vw;
 }
 
+.modal-header {
+  border-bottom: none;
+  .modal-title {
+    border-bottom: 1px solid black;
+  }
+}
+
 .modal-content {
   border: none;
   border-radius: 4px;
@@ -9,15 +16,20 @@
 
 .modal-body {
   display: flex;
-  .left-part, .right-part, .no-problem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .left-part {
-    width: 70%;
+    width: 60%;
+    margin-right: 5%;
+    h3 {
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+    .no-problem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .all-events {
-      height: 100%;
+      height: fit-content;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -25,6 +37,20 @@
   }
   .right-part {
     width: 30%;
+    background-color: #ffece8;
+    position: relative;
+    padding-top: 10px;
+    padding-left: 10px;
+    &:before {
+      content: "";
+      width: 97%;
+      height: 103%;
+      top: -23px;
+      left: -14px;
+      position: absolute;
+      border-left: 2px solid #F08B75;
+      border-bottom: 2px solid #F08B75;
+    }
     .no-problem {
       height: 100%;
       width: 50%;
@@ -37,20 +63,11 @@
   }
 }
 
-.warning {
-  width: fit-content;
-  padding: 0 4px;
-  font-size: 30px;
-  background: #ffece8;
-  margin-bottom: 10px;
-}
-
 .la-modale .user-event {
-  padding: 1vh;
   .first-line-block {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin: 10px 0px;
   }
   .events-list {
     display: flex;
@@ -64,19 +81,18 @@
   h2 {
     font-size: 1.5rem;
     color: #ED8074;
-    margin: 0px 5px;
+    margin-bottom: 0px;
   }
-  h3 {
-    font-family: 'Overpass', sans-serif;
-    font-size: 1.2rem;
+  p {
     margin: 0px 5px;
+    font-size: 1.2rem;
   }
   .event-options {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     font-size: 16px;
-    margin-left: 34%;
+    margin-left: 22%;
   }
 }
 
@@ -91,6 +107,7 @@
   display: flex;
   justify-content: flex-start;
   margin-bottom: 16px;
+  z-index: 3;
     img {
       height: 30px;
       opacity: 0.6;
@@ -102,19 +119,13 @@
     &:hover {
       img {
         opacity: 1;
-        height: 44px;
       }
       a {
-        border-bottom: 2px solid $light-gray;
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        color: rgb(62, 62, 62);
       }
     }
   }
-}
-
-.iconcareful {
-  height: 22px;
-  transform: rotate(10deg);
 }
 
 .editIcon {

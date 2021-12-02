@@ -1,103 +1,24 @@
-<div data-controller="calendar" class="la-modale">
+<div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModal-<%= date %>Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-  <div data-bs-toggle="modal" data-bs-target="#exampleModal-<%= date %>" class="h-100">
-    <div class="date-number"><%= date.day %></div>
-    <div class="countevents">
-      <% if events.present? %><%= pluralize(events.count, "event") %><% end %>
-      <% if events.any? { |element| element.add_reminder == true } %><%= image_tag "icons8-alarme-64.png", class: 'reminder-calendar' %><% end %>
-    </div>
-  </div>
-
-  <div class="modal fade" id="exampleModal-<%= date %>" tabindex="-1" aria-labelledby="exampleModal-<%= date %>Label" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <p class="modal-title" id="exampleModal-<%= date %>Label"><%= @days[date.wday] %> <%= date.strftime("%-d") %> <%= @months[date.month.to_i] %> </p>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-body">
-
-          <div class="left-part">
-            <h3>Mes événements</h3>
-            <div class="all-events">
-              <% events.each do |event|%>
-                <div class="user-event <%= event.conflict? %>">
-                  <div class="first-line-block">
-                    <div class="events-list" data-calendar-target="<%= event.conflict? %>">
-                      <div class="event-details">
-                        <h2 id="hours"><%= event.start_at.strftime("%Hh%M") %>-<%= event.end_at.strftime("%Hh%M") %></h2>
-                        <h3><strong><%= event.family_member.first_name %></strong> : <%= event.title %></h3>
-                      </div>
-                    </div>
-                    <div class="d-none editupdate" data-calendar-target="updateConflict">
-                      <%= link_to edit_family_event_path(current_user.family, event.id) do %>
-                        <img class="editIcon" src="https://img.icons8.com/material-outlined/50/000000/edit.png"/>
-                      <% end %>
-                      <%= link_to family_event_path(current_user.family, event.id), method: :delete do %>
-                        <img class="editIcon" src="https://img.icons8.com/external-justicon-lineal-justicon/50/000000/external-bin-hotel-essentials-justicon-lineal-justicon.png"/>
-                      <% end %>
-                    </div>
-                  </div>
-                  <div class="event-options">
-                    <% if event.add_reminder == true %>
-                      <div class="mr-1"><%= image_tag "icons8-alarme-64.png", class: "reminder-calendar" %><%= event.reminder_comment %></div>
-                    <% end %>
-                    <% if event.contact.present? %>
-                      <div class="mr-1"><%= image_tag 'icons8-téléphone-qui-sonne-64 (1).png', class: "reminder-calendar" %><%= event.contact %></div>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="right-part">
-            <% if @conflicts.where(date: date).present? %>
-              <% if @conflicts.where(date: date, conflict_type: "transport").present? %>
-                <h3 class="warning">No Transport !!</h3>
-              <% elsif @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-                <h3 class="warning">No Babysitter !!</h3>
-              <% end %>
-              <div class="help-options">
-                <div class="help-items" data-action="click->calendar#display">
-                  <a><%= image_tag "icons8-modifier-64.png" %>Modifie l'événement</a>
-                </div>
-                <div class="help-items">
-                  <%= link_to family_contacts_path(current_user.family), target: 'blank' do %>
-                    <div><%= image_tag "icons8-téléphone-qui-sonne-64 (1).png" %>Appelle un proche</div>
-                  <% end %>
-                </div>
-                <% if @conflicts.where(date: date, conflict_type: "babysitter").present? %>
-                  <div class="help-items">
-                    <%= link_to "https://babysittor.com/fr", target: '_blank' do %>
-                      <div><%= image_tag "icons8-maman-et-moi-classes-64.png" %>Allô babysitter!</div>
-                    <% end %>
-                  </div>
-                <% elsif @conflicts.where(date: date, conflict_type: "transport").present? %>
-                  <div class="help-items">
-                    <%= link_to "https://www.uber.com/fr", target: '_blank' do %>
-                      <div><%= image_tag "icons8-taxi-64.png" %>Réserve un taxi</div>
-                    <% end %>
-                  </div>
-                  <div class="help-items">
-                    <%= link_to "https://www.sncf.com/fr", target: '_blank' do %>
-                      <div><%= image_tag "icons8-train-64.png" %>Achète un billet</div>
-                    <% end %>
-                  </div>
-                <% end %>
-                </div>
-              </div>
-
-            <% else %>
-              <p class="no-problem">OUF ! Tout va bien pour cette fois 😃</p>
-            <% end %>
-          </div>
-
-        </div>
+      <div class="modal-header">
+        <p class="modal-title" id="exampleModal-<%= date %>Label"><%= @days[date.wday] %> <%= date.strftime("%-d") %> <%= @months[date.month.to_i] %> </p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
+      <div class="modal-body">
+
+        <div class="left-part">
+          <%= render "modale_left_part", events: events %>
+        </div>
+
+        <div class="right-part">
+          <%= render "modale_right_part", date: date %>
+        </div>
+
+      </div>
+
     </div>
   </div>
-
 </div>
