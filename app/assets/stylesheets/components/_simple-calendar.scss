@@ -126,6 +126,7 @@
     }
 
     &:before {
+      content: "";
       transition: all 0.2s;
       height: 0px;
       width: 20px;
@@ -148,11 +149,29 @@
   .conflictual > div {
     background: #ffece8 !important;
     border-color: #bd0000 !important;
-    &:hover {
-      border-color: #ffece8 !important;
-    }
+
     .date-number {
       color: #bd0000 !important;
+    }
+
+    &:before {
+      content: "";
+      transition: all 0.2s;
+      height: 0px;
+      width: 20px;
+      background: #bd0000;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    &:hover {
+      &:before {
+        height: 3px;
+        transition: all 0.2s;
+      }
     }
   }
 
