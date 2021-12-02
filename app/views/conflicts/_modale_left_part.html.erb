@@ -21,7 +21,7 @@
       </div>
       <div class="event-options">
         <% if event.add_reminder == true %>
-          <div class="mr-1"><%= image_tag "icons8-alarme-64.png", class: "reminder" %><%= event.reminder_comment %></div>
+          <div class="mr-1"><%= image_tag "icons8-alarme-64.png", class: "reminder", id: "fix-reminder-modale" %><%= event.reminder_comment %></div>
         <% end %>
         <% if event.contact.present? %>
           <div class="mr-1"><%= image_tag 'icons8-téléphone-qui-sonne-64 (1).png', class: "reminder" %><%= event.contact %></div>

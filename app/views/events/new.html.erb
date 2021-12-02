@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-4 bg-white mt-5">
+    <div class="col-12 col-sm-4 bg-white mt-3">
       <div class="form-wrapper" style="width: 400px; margin: 0px auto;">
         <h2 style="margin-bottom: -30px;">Ajouter un événement</h2>
         <%= simple_form_for [@family, @event] do |f| %>
@@ -15,7 +15,7 @@
               <%= f.input :add_reminder, as: :boolean, checked_value: 'true', unchecked_value: 'false', label: 'Ajouter un rappel ?', input_html: { data: { action: 'change->reminder#addReminder', reminder_target: 'test' }, class: "toggle"} %>
               <div class="d-none" data-reminder-target="reminderDetails">
                 <%= f.input :reminder_date, as: :string, required: true, label: 'Date de rappel', input_html: {class: "datepicker" }, placeholder: "AAAA-MM-JJ HH:MM" %>
-                <%= f.input :reminder_comment, label: "Quelque-chose à se rappeler?", placeholder: "Apporter des cotillons!" %>
+                <%= f.input :reminder_comment, label: "Ne pas oublier:", placeholder: "Apporter des cotillons!" %>
               </div>
             </div>
           </div>

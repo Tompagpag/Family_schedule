@@ -185,7 +185,7 @@
         border-radius: 50%;
         content: "";
         position: absolute;
-        left: -22%;
+        left: -26%;
         top: 44%;
         transform: translate(50%, -50%);
         border: 2px solid black;
@@ -204,7 +204,7 @@
         border-radius: 50%;
         content: "";
         position: absolute;
-        left: -22%;
+        left: -26%;
         top: 44%;
         transform: translate(50%, -50%);
         border: 2px solid #006b81;
@@ -223,7 +223,7 @@
         border-radius: 50%;
         content: "";
         position: absolute;
-        left: -22%;
+        left: -26%;
         top: 44%;
         transform: translate(50%, -50%);
         border: 2px solid #bd0000;
@@ -254,6 +254,10 @@
 .reminder {
   width: 25px;
   height: 25px;
+
+}
+
+#fix-reminder-modale {
   margin-right: 5px;
 }
 
