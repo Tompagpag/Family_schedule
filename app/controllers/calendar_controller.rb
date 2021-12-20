@@ -27,16 +27,16 @@ class CalendarController < ApplicationController
         if event_if_exist
           event_if_exist.update(
             title: event.summary,
-            start_at: event.start.date_time,
-            end_at: event.end.date_time,
+            start_at: event.start.date_time + 1.hours,
+            end_at: event.end.date_time + 1.hours,
             family_member: user.family_member,
             family: user.family
           )
         else
           Event.create!(
             title: event.summary,
-            start_at: event.start.date_time,
-            end_at: event.end.date_time,
+            start_at: event.start.date_time + 1.hours,
+            end_at: event.end.date_time + 1.hours,
             family_member: user.family_member,
             family: user.family,
             identifier: event.id
@@ -44,7 +44,6 @@ class CalendarController < ApplicationController
         end
       end
     end
-
     redirect_to family_conflicts_path(current_user.family)
   end
 

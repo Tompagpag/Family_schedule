@@ -1,14 +1,14 @@
 class EventsController < ApplicationController
   extend SimpleCalendar
+  before_action :set_family, only: [:new, :create, :edit]
+  before_action :set_event, only: [:edit, :update, :destroy]
 
   def new
-    @family = Family.find(params[:family_id])
     @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
-    @family = Family.find(params[:family_id])
     @event.family = @family
     @event.family_member = FamilyMember.find(params.dig(:event, :family_member)) if params.dig(:event, :family_member).present?
 
@@ -20,17 +20,13 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @family = Family.find(params[:family_id])
-    @event = Event.find(params[:id])
   end
 
   def update
-    @event = Event.find(params[:id])
     @event.update(event_params)
     @event.update(reminder_date: "", reminder_comment: "") if @event.add_reminder == false
     conflict = @event.conflict
     if conflict
-
       if @event.contact.present?
         conflict.events.each do |event|
           event.update(conflict: nil)
@@ -42,7 +38,6 @@ class EventsController < ApplicationController
         end
         conflict.destroy if conflict.reload.events.empty?
       end
-
     else
       @event.set_conflict
     end
@@ -50,7 +45,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
     conflict = @event.conflict
     @event.delete
     if conflict
@@ -63,6 +57,14 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def set_family
+    @family = Family.find(params[:family_id])
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:title, :start_at, :end_at, :contact, :add_reminder, :reminder_date, :reminder_comment)
