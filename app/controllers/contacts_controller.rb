@@ -1,19 +1,17 @@
 class ContactsController < ApplicationController
+  before_action :set_family
+  before_action :set_contact, only: [:edit, :update, :destroy]
+
   def index
-    @family = Family.find(params[:family_id])
-    # @contacts = Contact.where(family: @family)
     @contacts = Contact.where(family: @family).order(id: 'ASC')
-    # @contacts = Contact.all.order(id: 'ASC')
   end
 
   def new
-    @family = Family.find(params[:family_id])
     @contact = Contact.new
   end
 
   def create
     @contact = Contact.new(contact_params)
-    @family = Family.find(params[:family_id])
     @contact.family = @family
     if @contact.save
       redirect_to family_contacts_path(@family)
@@ -23,13 +21,9 @@ class ContactsController < ApplicationController
   end
 
   def edit
-    @family = Family.find(params[:family_id])
-    @contact = Contact.find(params[:id])
   end
 
   def update
-    @family = Family.find(params[:family_id])
-    @contact = Contact.find(params[:id])
     if @contact.update(contact_params)
       redirect_to family_contacts_path(@family)
     else
@@ -38,13 +32,19 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @family = Family.find(params[:family_id])
-    @contact = Contact.find(params[:id])
     @contact.destroy
     redirect_to family_contacts_path(@family)
   end
 
   private
+
+  def set_family
+    @family = Family.find(params[:family_id])
+  end
+
+  def set_contact
+    @contact = Contact.find(params[:id])
+  end
 
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :email, :phone_number, :comment)
