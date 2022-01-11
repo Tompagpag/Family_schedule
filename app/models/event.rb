@@ -56,13 +56,13 @@ class Event < ApplicationRecord
 
   def conflict_events_with_any_parent
     @conflict_events_with_any_parent ||=
-    Array(dad_events).select { |event| event.time_range.overlaps?(self.time_range) } |
-    Array(mum_events).select { |event| event.time_range.overlaps?(self.time_range) }
+      Array(dad_events).select { |event| event.time_range.overlaps?(self.time_range) } |
+      Array(mum_events).select { |event| event.time_range.overlaps?(self.time_range) }
   end
 
   def conflict_events_with_all_parent?
     Array(dad_events).select { |event| event.time_range.overlaps?(self.time_range) }.any? &&
-    Array(mum_events).select { |event| event.time_range.overlaps?(self.time_range) }.any?
+      Array(mum_events).select { |event| event.time_range.overlaps?(self.time_range) }.any?
   end
 
   def conflict_events_with_child
@@ -72,7 +72,7 @@ class Event < ApplicationRecord
 
   def conflict_events_with_other_parent
     @conflict_events_with_other_parent ||= if Array(dad_events).include?(self)
-      Array(mum_events).select { |event| event.time_range.overlaps?(self.time_range) }
+    Array(mum_events).select { |event| event.time_range.overlaps?(self.time_range) }
     elsif Array(mum_events).include?(self)
       Array(dad_events).select { |event| event.time_range.overlaps?(self.time_range) }
     else
